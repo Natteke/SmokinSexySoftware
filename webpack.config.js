@@ -3,7 +3,6 @@ const path = require('path');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 // WP4 багованое гавно, и дефолтный функционал либ не работает
 // по этому юзаем плагин-обертку, чтобы либа была доступна
-const WrapperPlugin = require('wrapper-webpack-plugin');
 
 
 module.exports = function ( env ) {
@@ -12,7 +11,7 @@ module.exports = function ( env ) {
 		isProd: env.prod,
 	};
 	const module = require('./webpack.resolve')(config);
-	console.dir(module);
+	// console.dir(module);
 	return {
 		mode: config.isProd ? 'production' : 'development',
 		entry: module.entry,
@@ -73,5 +72,4 @@ module.exports = function ( env ) {
 		// 	}),
 		// ]
 	}
-}
-;
+};

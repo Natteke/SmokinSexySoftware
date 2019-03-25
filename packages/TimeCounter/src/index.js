@@ -5,7 +5,7 @@ class Index {
 		this.tick = params.tick || 1000;
 		this.endBreakpoint = params.endBreakpoint || 'days';
 		this.addLeadingZeros = params.addLeadingZeros || false;
-		this.init();
+		this.start();
 	}
 	interval = null;
 	breakpoints = {
@@ -23,7 +23,7 @@ class Index {
 		hours: 0,
 		days: 0,
 	};
-	init = () => {
+	start = () => {
 		const interval = Math.abs(this.tick);
 		// вызываем первый коллбек синхронно
 		this.iterate();
@@ -35,11 +35,11 @@ class Index {
 		}, interval);
 	};
 	iterate = () => {
-		this.date = this.parseTime(this.time);
+		this.date = this.parseTime();
 		this.response();
 	};
-	parseTime = milliseconds => {
-		let rest = milliseconds + 0;
+	parseTime = () => {
+		let rest = this.time + 0;
 		const {breakpoints : bp} = this;
 		const newDate = {
 			days: 0,
