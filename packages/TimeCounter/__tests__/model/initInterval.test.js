@@ -1,4 +1,4 @@
-const TimeCounter = require('../dev/TimeCounter.test');
+const TimeCounter = require('../dist/TimeCounter');
 
 
 test('interval starts', done => {

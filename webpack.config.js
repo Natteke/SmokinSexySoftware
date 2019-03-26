@@ -1,19 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-// WP4 багованое гавно, и дефолтный функционал либ не работает
-// по этому юзаем плагин-обертку, чтобы либа была доступна
 
 
 module.exports = function ( env ) {
 	const config = {
 		packageName: env.p,
-		isProd: env.prod,
+		production: env.production,
 	};
 	const module = require('./webpack.resolve')(config);
-	// console.dir(module);
 	return {
-		mode: config.isProd ? 'production' : 'development',
+		mode: config.production ? 'production' : 'development',
 		entry: module.entry,
 		output: module.output,
 		module: {
@@ -26,7 +23,7 @@ module.exports = function ( env ) {
 			]
 		},
 		optimization:
-			config.isProd ?
+			config.production ?
 				{
 					minimizer: [
 						new UglifyJsPlugin({
@@ -42,7 +39,7 @@ module.exports = function ( env ) {
 		plugins: [
 			new webpack.DefinePlugin({
 				'process.env': {
-					NODE_ENV: config.isProd ? 'production' : 'development'
+					NODE_ENV: config.production ? 'production' : 'development'
 				}
 			}),
 		],

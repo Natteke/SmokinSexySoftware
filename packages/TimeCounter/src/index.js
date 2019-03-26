@@ -1,4 +1,4 @@
-class Index {
+class TimeCounter {
 	constructor(callback, params = {}) {
 		this.onTick = callback || (() => {throw Error('1st argument callback required')});
 		this.time = params.time || 0;
@@ -75,4 +75,4 @@ class Index {
 	stop = () => clearInterval(this.interval);
 }
 
-export default Index;
+export default TimeCounter;

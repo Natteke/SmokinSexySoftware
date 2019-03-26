@@ -1,5 +1,4 @@
 module.exports = config => {
-	const stage = config.production ? 'dist' : 'dev';
 	const pefix = config.production ? '' : '.test';
 	const name = config.packageName;
 	return {
@@ -7,7 +6,7 @@ module.exports = config => {
 			[name]: `./packages/${name}/src/index.js`,
 		},
 		output: {
-			path: __dirname +`/packages/${name}/${stage}`,
+			path: __dirname +`/packages/${name}/dist`,
 			filename: `${name}${pefix}.js`,
 			libraryTarget: 'umd',
 			libraryExport: 'default',
