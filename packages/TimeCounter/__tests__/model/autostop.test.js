@@ -1,5 +1,4 @@
-const TimeCounter = require('../dist/TimeCounter');
-
+const TimeCounter = require('../../dist/TimeCounter');
 
 test('Stop when counter reach 0', done => {
 	const callback = jest.fn(( x, y ) => y);

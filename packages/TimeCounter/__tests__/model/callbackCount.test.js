@@ -1,4 +1,4 @@
-const TimeCounter = require('../dist/TimeCounter');
+const TimeCounter = require('../../dist/TimeCounter');
 
 
 test('Callback summons count ', done => {
