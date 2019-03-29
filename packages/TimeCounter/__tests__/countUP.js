@@ -1,25 +1,4 @@
-// const TimeCounter = require('../dist/TimeCounter');
-//
-// describe('CountUp', () => {
-// 	it('default params ', done => {
-// 		const callback = jest.fn(( x, y ) => y.time);
-// 		const counter = new TimeCounter(callback);
-// 		const callbackCallsTimes = 3;
-// 		const defaultTickValue = counter.tick;
-// 		setTimeout(() => {
-// 			const { results } = callback.mock;
-// 			const lastResult = results[results.length - 1];
-// 			// callback called [callbackCallsTimes] times
-// 			expect(results.length).toBe(callbackCallsTimes);
-// 			// time counted for [callbackCallsTimes - 1] tics
-// 			expect(lastResult.value)
-// 				.toBe(( callbackCallsTimes - 1 ) * defaultTickValue);
-// 			done();
-// 		}, callbackCallsTimes * defaultTickValue);
-// 	});
-// });
-
-const TimeCounter = require('../dist/TimeCounter');
+import TimeCounter from '../src/index';
 
 describe('CountUp', () => {
 	it('3 sec', done => {

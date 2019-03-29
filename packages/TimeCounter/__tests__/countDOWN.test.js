@@ -1,4 +1,4 @@
-const TimeCounter = require('../dist/TimeCounter');
+import TimeCounter from '../src/index';
 
 describe('Countdown', () => {
 	it('10 sec', done => {

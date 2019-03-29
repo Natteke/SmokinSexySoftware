@@ -1,42 +1,57 @@
-export default class Elemental {
+const Elemental = {};
 
-	static instance;
+Elemental.regexp = string => new RegExp(`\\s?((?<!(\\w))\\s)?(?<!([-+$\\[\\]\\w]))${string}(?!([-+$\\[\\]\\w]))`);
 
-	constructor() {
-		if (Elemental.instance) return Elemental.instance;
-		Elemental.instance = this;
+Elemental.hasClass = (element, string) => Elemental.regexp(string).test(element.className);
+
+Elemental.addClass = (element, string) => {
+	if (!Elemental.hasClass(element, string)) {
+		const space = element.className.length > 0 ? ' ' : '';
+		element.className += `${space}${string}`;
 	}
-	// patch Element.prototype with Elemental methods
-	static eject = function () {
-		if (Elemental.instance) return Elemental.instance;
-		Elemental.instance = this;
-		const methods = Object.getOwnPropertyNames(instance).filter((e) => e !== 'eject');
+	return element;
+};
 
-		methods.forEach(function (methodName) {
-			Element.prototype[methodName] = (function ( className ) {
-				instance[methodName](this, className);
-			});
-		})
-	};
+Elemental.removeClass = (element, string) => {
+	while (Elemental.hasClass(element, string)) {
+		element.className = element.className.replace(Elemental.regexp(string), "")
+	}
+	return element;
+};
 
-	hasClass = (element, string) => element.className.indexOf(string) >= 0;
+// patch Element.prototype with Elemental methods
+Elemental.eject = function () {
+	// props we don't want to eject
+	const shouldEject = ['addClass', 'removeClass', 'hasClass'];
+	const methods = Object.getOwnPropertyNames(Elemental)
+		.filter((e) => shouldEject.indexOf(e) >= 0);
+	methods.forEach(function (methodName) {
+		Element.prototype[methodName] = (function (className) {
+			return Elemental[methodName](this, className);
+		} );
+	})
+};
 
-	addClass = (element, string) => {
-		if (!this.hasClass(element, string)) {
-			const space = element.className.length > 0 ? ' ' : '';
-			element.className += `${space}${string}`;
-		}
-	};
+export default Elemental;
 
-	removeClass = (element, string) => {
-		element.className = element.className.replace(new RegExp('[\\s]?\\b' + string + '\\b[\\s]?',"g"),"")
-	};
-}
 
-//Elemental.eject();
-// var body = doc.select('body');
-// body.addClass("apple");
-//const E = new Elemental();
-// E.addClass(element, className);
+// (((?<!(\w))\s)?(?<!([-+$\[\]\w]))apple(?!([-+$\[\]\w]))\s?)
+
+// apple
+// apple
+// apple apple2 apple3
+// apple1 apple apple2
+// apple1 apple2 apple
+// apple2 apple
+// apple2 apple
+//
+// wapple-test-wapple
+// apple-test
+// test-apple
+// wapple-test-wapple
+// apple[wapple]
+// 	[wapple]apple
+// $apple
+// $apple
 
 

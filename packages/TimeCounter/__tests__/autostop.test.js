@@ -1,4 +1,5 @@
-const TimeCounter = require('../dist/TimeCounter');
+import TimeCounter from '../src/index';
+
 describe('Autostop', () => {
 	it('Stop when counter reach 0', done => {
 		const callback = jest.fn(( x, y ) => y);
