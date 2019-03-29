@@ -1,7 +1,7 @@
-const TimeCounter = require('../../dist/TimeCounter');
+const TimeCounter = require('../dist/TimeCounter');
 
 
-describe('Autostop', () => {
+describe('Initialisation', () => {
 	it('Initial callback call', done => {
 		const firstResponse = jest.fn(null);
 		new TimeCounter(firstResponse);

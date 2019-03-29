@@ -1,5 +1,4 @@
-const TimeCounter = require('../../dist/TimeCounter');
-
+const TimeCounter = require('../dist/TimeCounter');
 
 describe('Time parsing', () => {
 	it('Case Seconds / 500 000', () => {
@@ -37,9 +36,6 @@ describe('Time parsing', () => {
 				days: 0, hours: 555, min: 41, sec: 40, ms: 0
 			});
 	});
-});
-
-describe('Parse time from ms in to object', () => {
 	it('Case -10000', () => {
 		const parseTime = jest.fn(x => x);
 		let counter = new TimeCounter(parseTime, {
@@ -118,5 +114,4 @@ describe('Parse time from ms in to object', () => {
 				days: 34, hours: 17, min: 30, sec: 0, ms: 5
 			});
 	});
-
 });

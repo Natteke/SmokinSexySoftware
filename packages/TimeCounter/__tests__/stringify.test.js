@@ -1,7 +1,7 @@
-const TimeCounter = require('../../dist/TimeCounter');
+const TimeCounter = require('../dist/TimeCounter');
 
 
-describe('String Conversion', () => {
+describe('Stringify', () => {
 	it('Case 90 485 000', () => {
 		const parseTime = jest.fn(x => x);
 		let counter = new TimeCounter(parseTime, {
