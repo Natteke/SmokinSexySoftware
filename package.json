@@ -10,7 +10,6 @@
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "babel-loader": "^8.0.5",
-    "fs": "^0.0.1-security",
     "jest": "^24.5.0",
     "jest-cli": "^24.5.0",
     "jest-dom": "^3.1.3",
