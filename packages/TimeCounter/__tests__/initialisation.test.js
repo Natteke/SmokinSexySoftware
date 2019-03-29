@@ -2,11 +2,30 @@ const TimeCounter = require('../dist/TimeCounter');
 
 
 describe('Initialisation', () => {
+
 	it('Initial callback call', done => {
-		const firstResponse = jest.fn(null);
-		new TimeCounter(firstResponse);
-		expect(firstResponse.mock.calls.length)
+		const callback = jest.fn(null);
+		new TimeCounter(callback);
+		expect(callback.mock.calls.length)
 			.toBe(1);
 		done();
-	})
+	});
+
+	it('default state', done => {
+		const callback = jest.fn(null);
+		const counter = new TimeCounter(callback);
+		expect(counter.tick).toBe(1000);
+		expect(counter.time).toBe(0);
+		expect(counter.addLeadingZeros).toBe(false);
+		expect(counter.endBreakpoint).toBe('days');
+		expect(counter.interval).toBe(setTimeout(()=>{}) - 1);
+		expect(counter.breakpoints).toEqual({
+			days: 86400000,
+			hours: 3600000,
+			min: 60000,
+			ms: 1,
+			sec: 1000,
+		});
+		done();
+	});
 });

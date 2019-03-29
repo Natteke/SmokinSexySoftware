@@ -7,6 +7,8 @@ class TimeCounter {
 		this.addLeadingZeros = params.addLeadingZeros || false;
 		this.start();
 	}
+	// reset()
+	// refactor with state pattern
 	interval = null;
 	breakpoints = {
 		ms: 1,
