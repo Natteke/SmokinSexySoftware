@@ -5,9 +5,7 @@ Elemental.regexp = string => (
     new RegExp(`\\s?((?<!(\\w))\\s)?(?<!([-+$\\[\\]\\w]))${string}(?!([-+$\\[\\]\\w]))`)
 );
 
-Elemental.contains = (string, substring) => Elemental.regexp(string).test(substring);
-
-Elemental.hasClass = (element, string) => Elemental.contains(string, element.className);
+Elemental.hasClass = (element, string) => Elemental.regexp(string).test(element.className);
 
 Elemental.addClass = (element, string) => {
     let { className } = element;
@@ -20,17 +18,17 @@ Elemental.addClass = (element, string) => {
 };
 
 Elemental.removeClass = (element, string) => {
-    let { className } = element;
-    while (Elemental.contains(string, className)) {
-        className = className.replace(Elemental.regexp(string), '');
-    }
+    const className = element.className
+        .split(' ')
+        .filter(e => e !== string)
+        .join(' ');
     element.setAttribute('class', className);
     return element;
 };
 
 // patch Element.prototype with Elemental methods
 Elemental.eject = () => {
-    // props we don't want to eject
+    // props we want to eject
     const shouldEject = ['addClass', 'removeClass', 'hasClass'];
     const methods = Object.getOwnPropertyNames(Elemental)
         .filter(e => shouldEject.indexOf(e) >= 0);

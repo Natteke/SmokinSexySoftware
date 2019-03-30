@@ -20,8 +20,7 @@ describe('should remove class', () => {
         document.body.innerHTML = '<div class="element element_valid element-reverted"></div>';
         const target = document.querySelector('div');
         Elemental.removeClass(target, 'element');
-        // TODO: get rid of space at start
-        expect(target.className).toBe(' element_valid element-reverted');
+        expect(target.className).toBe('element_valid element-reverted');
     });
 
     it('remove from center', () => {
