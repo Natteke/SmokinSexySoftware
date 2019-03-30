@@ -22,11 +22,30 @@ describe('Eject', () => {
         expect(typeof document.body.hasClass).toBe('function');
     });
 
+    it('toggleClass is defined', () => {
+        document.body.innerHTML = html;
+        expect(typeof document.body.toggleClass).toBe('function');
+    });
+
     it('Element addClass', () => {
         document.body.innerHTML = html;
         const target = document.querySelector(targetSelector);
         target.addClass('apple');
         expect(target.className).toBe(`${testClass} apple`);
+    });
+
+    it('Element toggleAdd', () => {
+        document.body.innerHTML = html;
+        const target = document.querySelector(targetSelector);
+        target.toggleClass('apple');
+        expect(target.className).toBe(`${testClass} apple`);
+    });
+
+    it('Element toggleRemove', () => {
+        document.body.innerHTML = html;
+        const target = document.querySelector(targetSelector);
+        target.toggleClass(testClass);
+        expect(target.className).toBe('');
     });
 
     it('Element removeClass', () => {

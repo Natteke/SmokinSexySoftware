@@ -26,17 +26,32 @@ Elemental.removeClass = (element, string) => {
     return element;
 };
 
+Elemental.toggleClass = (element, string) => {
+    if (Elemental.hasClass(element, string)) {
+        Elemental.removeClass(element, string);
+    } else {
+        Elemental.addClass(element, string);
+    }
+    return element;
+};
+
 // patch Element.prototype with Elemental methods
 Elemental.eject = () => {
     // props we want to eject
-    const shouldEject = ['addClass', 'removeClass', 'hasClass'];
     const methods = Object.getOwnPropertyNames(Elemental)
-        .filter(e => shouldEject.indexOf(e) >= 0);
+        .filter(e => Elemental.propsToEject.indexOf(e) >= 0);
     methods.forEach((methodName) => {
         Element.prototype[methodName] = (function (className) {
             return Elemental[methodName](this, className);
         });
     });
 };
+
+Elemental.propsToEject = [
+    'addClass',
+    'removeClass',
+    'hasClass',
+    'toggleClass',
+];
 
 export default Elemental;
