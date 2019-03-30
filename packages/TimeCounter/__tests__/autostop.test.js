@@ -20,11 +20,4 @@ describe('Autostop', () => {
             // +30ms threshold to test all [times] async calls
         }, time + 30);
     });
-    it('throw error if no callback', () => {
-        const counter = new TimeCounter();
-        expect(() => {
-            throw new Error();
-        }).toThrow();
-        counter.stop();
-    });
 });
