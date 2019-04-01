@@ -1,0 +1,21 @@
+{
+  "name": "sss-elemental",
+  "version": "0.1.1",
+  "description": "Elemental",
+  "author": "Andrey Ponomarenko <slaner2008@yandex.ru>",
+  "homepage": "https://github.com/Natteke/SmokinSexySoftware#readme",
+  "license": "MIT",
+  "main": "dist/Elemental.js",
+  "bugs": {
+    "url": "https://github.com/Natteke/SmokinSexySoftware/issues"
+  },
+  "keywords": [
+    "sss-elemental",
+    "elemental",
+    "Elemental",
+    "class",
+    "className",
+    "HTML",
+    "sss"
+  ]
+}

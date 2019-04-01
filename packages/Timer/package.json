@@ -1,0 +1,33 @@
+{
+  "name": "sss-timer",
+  "version": "1.0.0",
+  "description": "Timer",
+  "keywords": [
+    "timer",
+    "smokinsexysoftware",
+    "sss"
+  ],
+  "author": "Andrey Ponomarenko <slaner2008@yandex.ru>",
+  "homepage": "https://github.com/Natteke/SmokinSexySoftware#readme",
+  "license": "MIT",
+  "main": "dist/Timer.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Natteke/SmokinSexySoftware.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Natteke/SmokinSexySoftware/issues"
+  }
+}
