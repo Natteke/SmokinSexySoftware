@@ -1,11 +1,11 @@
-import TimeCounter from '../src/index';
+import Timer from '../src/index';
 
 
 describe('Initialisation', () => {
 
     it('Initial callback call', (done) => {
         const callback = jest.fn(null);
-        const counter = new TimeCounter(callback);
+        const counter = new Timer(callback);
         counter.stop();
         expect(callback.mock.calls.length)
             .toBe(1);
@@ -14,7 +14,7 @@ describe('Initialisation', () => {
 
     it('default state', (done) => {
         const callback = jest.fn(null);
-        const counter = new TimeCounter(callback);
+        const counter = new Timer(callback);
         expect(counter.tick).toBe(1000);
         expect(counter.time).toBe(0);
         expect(counter.addLeadingZeros).toBe(false);
@@ -32,7 +32,7 @@ describe('Initialisation', () => {
     });
 
     it('throw error if no callback was provided', () => {
-        const counter = new TimeCounter();
+        const counter = new Timer();
         expect(() => {
             throw new Error();
         }).toThrow();

@@ -1,9 +1,9 @@
-import TimeCounter from '../src/index';
+import Timer from '../src/index';
 
 describe('Time parsing', () => {
     it('Case Seconds / 500 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 500000,
             endBreakpoint: 'sec',
         });
@@ -16,7 +16,7 @@ describe('Time parsing', () => {
 
     it('Case Minutes / 2 000 500 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 2000500000,
             endBreakpoint: 'min',
         });
@@ -29,7 +29,7 @@ describe('Time parsing', () => {
 
     it('Case Hours / 2 000 500 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 2000500000,
             endBreakpoint: 'hours',
         });
@@ -41,7 +41,7 @@ describe('Time parsing', () => {
     });
     it('Case -10000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: -10000,
         });
         expect(parseTime.mock.results[0].value)
@@ -54,7 +54,7 @@ describe('Time parsing', () => {
 
     it('Case 50 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 50000,
         });
         expect(parseTime.mock.results[0].value)
@@ -66,7 +66,7 @@ describe('Time parsing', () => {
 
     it('Case 500 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 500000,
         });
         expect(parseTime.mock.results[0].value)
@@ -78,7 +78,7 @@ describe('Time parsing', () => {
 
     it('Case 5 184 025 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 5184025000,
         });
         expect(parseTime.mock.results[0].value)
@@ -91,7 +91,7 @@ describe('Time parsing', () => {
 
     it('Case 2 000 500 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 2000500000,
         });
         expect(parseTime.mock.results[0].value)
@@ -103,7 +103,7 @@ describe('Time parsing', () => {
 
     it('Case 3 000 600 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 3000600000,
         });
         expect(parseTime.mock.results[0].value)
@@ -115,7 +115,7 @@ describe('Time parsing', () => {
 
     it('Case 3 000 600 005', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 3000600005,
         });
         expect(parseTime.mock.results[0].value)

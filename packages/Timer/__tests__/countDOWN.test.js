@@ -1,4 +1,4 @@
-import TimeCounter from '../src/index';
+import Timer from '../src/index';
 
 describe('Countdown', () => {
     it('10 sec', (done) => {
@@ -6,7 +6,7 @@ describe('Countdown', () => {
         const times = 3;
         const callsTotal = times + 1; // 1 sync, and [times] async calls
         const initialTime = 10000;
-        const counter = new TimeCounter(callback, {
+        const counter = new Timer(callback, {
             time: initialTime,
             // count down
             tick: -1000,

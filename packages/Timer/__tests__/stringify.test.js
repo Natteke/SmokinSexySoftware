@@ -1,10 +1,10 @@
-import TimeCounter from '../src/index';
+import Timer from '../src/index';
 
 
 describe('Stringify', () => {
     it('Case 90 485 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 90485000,
             addLeadingZeros: true,
         });
@@ -16,7 +16,7 @@ describe('Stringify', () => {
     });
     it('Case 2 000 500 000', () => {
         const parseTime = jest.fn(x => x);
-        const counter = new TimeCounter(parseTime, {
+        const counter = new Timer(parseTime, {
             time: 2000500000,
             endBreakpoint: 'hours',
             addLeadingZeros: true,

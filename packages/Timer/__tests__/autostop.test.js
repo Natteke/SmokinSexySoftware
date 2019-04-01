@@ -1,4 +1,4 @@
-import TimeCounter from '../src/index';
+import Timer from '../src/index';
 
 describe('Autostop', () => {
     it('Stop when counter reach 0', done => {
@@ -7,7 +7,7 @@ describe('Autostop', () => {
         const time = 2000;
         const times = 3;
 
-        const counter = new TimeCounter(callback, {
+        const counter = new Timer(callback, {
             time,
             tick: tick * -1,
         });

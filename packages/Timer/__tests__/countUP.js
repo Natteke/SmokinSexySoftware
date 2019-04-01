@@ -1,11 +1,11 @@
-import TimeCounter from '../src/index';
+import Timer from '../src/index';
 
 describe('CountUp', () => {
 	it('3 sec', done => {
 		const callback = jest.fn(( x, y ) => y.time);
 		const times = 3;
 		const callsTotal = times + 1; // 1 sync, and [times] async calls
-		const counter = new TimeCounter(callback);
+		const counter = new Timer(callback);
 		const tick = counter.tick;
 		const actualTime = times * tick;
 
