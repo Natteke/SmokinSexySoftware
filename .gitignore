@@ -4,4 +4,4 @@ package-lock.json
 yarn.lock
 coverage
 dev/
-packages/*/lib
+lerna-debug.log
