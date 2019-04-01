@@ -1,0 +1,19 @@
+.ScrollLocker-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0, .5);
+    z-index: 99;
+    touch-action: auto;
+}
+
+.ScrollLocker-overlay_scroll {
+    overflow-y: scroll;
+    touch-action: none;
+}
+
+.ScrollLocker-lock {overflow-y: hidden;}
+
+.ScrollLocker-hide {display: none;}
+
