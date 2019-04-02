@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
 </head>
-<body>
-<div style="width: 40px; height: 2000px; background-color: #7f7f7f"></div>
+
+<style>
+    .high-container {
+        height: 200px;
+        font-size: 50px;
+        /* position: fixed; */
+        margin: 0 auto;
+        width: 50%;
+        overflow-y: scroll;
+        word-break: break-all;
+        box-sizing: border-box;
+    }
+</style>
+
+<body style="background-color: deepskyblue">
+<div class="high-container">asdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasd</div>
+<div style="width: 40px; height: 2000px; background-color: deeppink"></div>
 <script src="../../packages/ScrollLocker/dist/ScrollLocker.js"></script>
 <script>
-    ScrollLocker.lock(document.body);
+    const inner = document.querySelector('.high-container');
+    const locker = new ScrollLocker(inner);
+    // locker.lock();
+    window.temp1 = locker;
+    console.dir(locker);
 </script>
 </body>
 </html>

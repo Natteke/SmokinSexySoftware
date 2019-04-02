@@ -1,5 +1,5 @@
 .ScrollLocker {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
@@ -8,12 +8,7 @@
     touch-action: auto;
     box-sizing: border-box;
 }
-
-.ScrollLocker_scroll {
-    overflow-y: scroll;
-}
-
+.ScrollLocker_scroll {overflow-y: scroll;}
 .ScrollLocker_lock {overflow-y: hidden;}
-
 .ScrollLocker_hidden {display: none;}
 

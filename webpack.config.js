@@ -23,6 +23,12 @@ module.exports = (env) => {
                         rootMode: 'upward',
                     },
                 },
+                {
+                    test: /\.css$/,
+                    exclude: /node_modules/,
+                    use: ['style-loader', 'css-loader'],
+                    // options: { minimize: config.production },
+                },
             ],
         },
         optimization:
