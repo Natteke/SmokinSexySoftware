@@ -1,23 +1,42 @@
-import './kit.locker.css';
-import Elemental from '../../Elemental/src/index';
+// import './index.css';
+// import Elemental from '../../Elemental/src/index';
 
 // locksctoll(elem, exept) // return release;
 
 const ScrollLocker = {};
-
-const overlay = '<div class="ScrollLocker-overlay_scroll kit-none"></div>';
 const preventDefault = e => e.preventDefault;
 const isScroll = () => (
     parseInt(window.getComputedStyle(document.documentElement, null).height, 10) >= window.innerHeight
 );
 
-ScrollLocker.state = {
+const styles = {
+    display: 'none',
+    position: 'fixed',
+    top: '0',
+    bottom: '0',
+    right: '0',
+    backgroundColor: 'rgba(0,0,0, .5)',
+    zIndex: '99',
+    boxSizing: 'border-box',
+};
+
+const config = {
     isActive: false,
+    classes: {
+        main: 'ScrollLocker',
+        hidden: 'ScrollLocker_hidden',
+    },
+    overlay: document.createElement('div'),
     // lockKeys: [32, 33, 34, 35, 36, 37, 38, 39, 40],
 };
 
 ScrollLocker.lock = (element, except, params = {}) => {
-    element.insertAdjacentHTML('afterbegin', overlay);
+    const {
+        overlay,
+    } = config;
+
+    element.insertAdjacentElement('afterbegin', overlay);
+    Object.assign(overlay.style, styles);
 };
 //
 // class KitLocker {

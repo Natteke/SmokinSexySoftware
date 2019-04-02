@@ -1,5 +1,7 @@
 const Elemental = {};
 
+
+// add function setStyle from js object
 /* https://regex101.com/r/9kYy03/4 */
 Elemental.regexp = string => (
     new RegExp(`\\s?((?<!(\\w))\\s)?(?<!([-+$\\[\\]\\w]))${string}(?!([-+$\\[\\]\\w]))`)

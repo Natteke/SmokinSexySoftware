@@ -1,4 +1,4 @@
-.ScrollLocker-overlay {
+.ScrollLocker {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -6,14 +6,14 @@
     background-color: rgba(0,0,0, .5);
     z-index: 99;
     touch-action: auto;
+    box-sizing: border-box;
 }
 
-.ScrollLocker-overlay_scroll {
+.ScrollLocker_scroll {
     overflow-y: scroll;
-    touch-action: none;
 }
 
-.ScrollLocker-lock {overflow-y: hidden;}
+.ScrollLocker_lock {overflow-y: hidden;}
 
-.ScrollLocker-hide {display: none;}
+.ScrollLocker_hidden {display: none;}
 
