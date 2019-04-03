@@ -1,23 +1,19 @@
 {
   "name": "sss-scroll-locker",
   "version": "2.0.3-alpha.0",
-  "description": "Timer",
+  "description": "ScrollLocker",
   "keywords": [
-    "timer",
+    "ScrollLocker",
     "smokinsexysoftware",
     "sss",
     "js",
     "helper",
-    "time"
+    "scroll"
   ],
   "author": "Andrey Ponomarenko <slaner2008@yandex.ru>",
   "homepage": "https://github.com/Natteke/SmokinSexySoftware#readme",
   "license": "MIT",
-  "main": "dist/Timer.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "main": "dist/ScrollLocker.js",
   "files": [
     "dist",
     "src"
