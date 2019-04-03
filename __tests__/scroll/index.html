@@ -10,6 +10,7 @@
         margin: 0;
     }
     .high-container {
+        position: relative;
         height: 200px;
         font-size: 50px;
         /* position: fixed; */
@@ -29,11 +30,20 @@
         right: 0;
         top: 50%;
     }
+    .absoluteIn {
+        display: block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        right: 0;
+        top: 0;
+    }
 </style>
 
 <body style="background-color: deepskyblue">
-<div class="high-container">asdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasd</div>
-<div class="fixed_element" data-scrollLocker="fixed">FIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXED</div>
+<div class="high-container"><span class="absoluteIn" data-scroll-fixed></span>asdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasd</div>
+<div class="fixed_element" data-scroll-fixed>FIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXED</div>
 <div style="width: 40px; height: 2000px; background-color: deeppink"></div>
 <script src="../../packages/ScrollLocker/dist/ScrollLocker.js"></script>
 <script>

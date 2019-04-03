@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpackResolve = require('./webpack.resolve');
+// const optimizeCSS = require('optimize-css-assets-webpack-plugin');
 
 
 module.exports = (env) => {
@@ -26,8 +27,14 @@ module.exports = (env) => {
                 {
                     test: /\.css$/,
                     exclude: /node_modules/,
-                    use: ['style-loader', 'css-loader'],
-                    // options: { minimize: config.production },
+                    use: [
+                        {
+                            loader: 'style-loader',
+                        },
+                        {
+                            loader: 'css-loader',
+                        },
+                    ],
                 },
             ],
         },
