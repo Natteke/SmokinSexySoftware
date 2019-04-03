@@ -19,7 +19,8 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "dist",
+    "src"
   ],
   "publishConfig": {},
   "repository": {
