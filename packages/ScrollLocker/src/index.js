@@ -7,25 +7,33 @@ const classes = {
     scroll: 'ScrollLocker_scroll',
     lock: 'ScrollLocker_lock',
     hidden: 'ScrollLocker_hidden',
-    fixed: 'ScrollLocker_fixed',
+    fixed: '[data-scrollLocker="fixed"]',
+    borderBox: 'ScrollLocker_borderBox',
+};
+
+const defaultParams = {
+    willBorderBox: true,
 };
 
 class ScrollLocker {
     constructor(element, params = {}) {
         this.container = element || (() => new Error('1st argument element required'));
+        // set false to prevent set box-sizing: border-box to container
+        this.willBorderBox = params.willBorderBox || defaultParams.willBorderBox;
         this.init();
     }
 
     isActive = false;
 
-    fixedElements = document.querySelectorAll(`.${classes.fixed}`);
+    fixedElements = document.querySelectorAll(classes.fixed);
 
     overlay = document.createElement('div');
 
     init = () => {
         const { overlay } = this;
-        this.container.insertAdjacentElement('afterbegin', overlay);
         Elemental.addClass(overlay, `${classes.main} ${classes.hidden}`);
+        this.container.insertAdjacentElement('afterbegin', overlay);
+        if (this.willBorderBox) Elemental.addClass(this.container, classes.borderBox);
     };
 
     lock = () => {
@@ -37,16 +45,21 @@ class ScrollLocker {
         const containerPosition = getComputedStyle(container).position;
         // remind container width before hiding a scroll
         const width = container.scrollWidth;
-        container.addEventListener('touchmove', ScrollLocker.preventDefault, { passive: false });
+        // container.addEventListener('touchmove', ScrollLocker.preventDefault, { passive: false });
+        // container should not be static
         if (containerPosition === 'static') container.style.position = 'relative';
+        // lock container's scroll
         Elemental.addClass(container, classes.lock);
+        // add pseudo-scroll to ovelay
         Elemental.addClass(overlay, classes.scroll);
+        // display overlay
         Elemental.removeClass(overlay, classes.hidden);
         // detect actual scroll width
-        const padding = `${container.scrollWidth - width}px`;
-        container.style.paddingRight = padding;
+        const indent = `${container.scrollWidth - width}px`;
+        // add margin to prevent overlay layering on content
+        container.style.paddingRight = indent;
         Object.keys(fixedElements).forEach((t) => {
-            fixedElements[t].style.paddingRight = padding;
+            fixedElements[t].style.marginRight = indent;
         });
         this.isActive = true;
     };
@@ -58,21 +71,25 @@ class ScrollLocker {
             fixedElements,
         } = this;
         const { hidden, lock, scroll } = classes;
-        container.removeEventListener('touchmove', ScrollLocker.preventDefault, { passive: false });
+        // container.removeEventListener('touchmove', ScrollLocker.preventDefault, { passive: false });
+        // release container's scroll
         Elemental.removeClass(container, lock);
+        // remove overlay pseudo-scroll
         Elemental.removeClass(overlay, scroll);
+        // hide overlay
         Elemental.addClass(overlay, hidden);
+        // remove pseudo margin
         container.style.paddingRight = '';
         Object.keys(fixedElements).forEach((t) => {
-            fixedElements[t].style.paddingRight = '';
+            fixedElements[t].style.marginRight = '';
         });
         this.isActive = false;
     };
 
     static preventDefault = e => e.preventDefault;
 
-    static isScroll = () => (
-        parseInt(window.getComputedStyle(document.documentElement, null).height, 10) >= window.innerHeight
+    static isScroll = element => (
+        parseInt(getComputedStyle(element, null).height, 10) >= element.innerHeight
     );
 }
 

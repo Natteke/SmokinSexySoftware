@@ -16,8 +16,10 @@
     "class",
     "className",
     "HTML",
+    "js",
     "helper",
     "DOM",
     "sss"
-  ]
+  ],
+  "gitHead": "534c344481169e247a1b08f8bcd796a974fd77b3"
 }
