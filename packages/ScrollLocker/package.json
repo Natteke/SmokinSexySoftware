@@ -1,6 +1,6 @@
 {
   "name": "sss-scroll-locker",
-  "version": "1.0.0",
+  "version": "2.0.0-alpha.0",
   "description": "Timer",
   "keywords": [
     "timer",
@@ -21,8 +21,7 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-  },
+  "publishConfig": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Natteke/SmokinSexySoftware.git"
