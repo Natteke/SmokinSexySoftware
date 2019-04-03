@@ -10,8 +10,8 @@
     "url": "https://github.com/Natteke/SmokinSexySoftware/issues"
   },
   "files": [
-    "dist",
-    "src"
+    "dist/",
+    "src/"
   ],
   "keywords": [
     "sss-elemental",
