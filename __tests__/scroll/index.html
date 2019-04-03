@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
 </head>
 
+
 <style>
+    body {
+        margin: 0;
+    }
     .high-container {
         height: 200px;
         font-size: 50px;
@@ -15,18 +19,27 @@
         word-break: break-all;
         box-sizing: border-box;
     }
+    .fixed_element {
+        word-break: break-all;
+        position: fixed;
+        height: 50px;
+        padding: 0 5px;
+        background-color: orangered;
+        left: 0;
+        right: 0;
+        top: 50%;
+    }
 </style>
 
 <body style="background-color: deepskyblue">
 <div class="high-container">asdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasd</div>
+<div class="fixed_element" data-scrollLocker="fixed">FIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXED</div>
 <div style="width: 40px; height: 2000px; background-color: deeppink"></div>
 <script src="../../packages/ScrollLocker/dist/ScrollLocker.js"></script>
 <script>
     const inner = document.querySelector('.high-container');
-    const locker = new ScrollLocker(inner);
-    // locker.lock();
-    window.temp1 = locker;
-    console.dir(locker);
+    window.temp1 = new ScrollLocker(inner);
+    window.temp2 = new ScrollLocker(document.body);
 </script>
 </body>
 </html>
