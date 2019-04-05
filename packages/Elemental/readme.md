@@ -34,7 +34,7 @@ npm i sss-elemental --save
 Do `import Elemental from 'sss-elemental';`
 
 ## Usage
-#### addClass
+### addClass
 
 Adds string to element's class name
 
@@ -42,7 +42,7 @@ Adds string to element's class name
 const item = document.querySelector('body');
 Elemental.addClass(item, 'customClass');
 ```
-#### removeClass
+### removeClass
 
 Removes string from element's class name
 
@@ -51,7 +51,7 @@ const item = document.querySelector('body');
 Elemental.removeClass(item, 'customClass');
 ```
 
-#### toggleClass
+### toggleClass
 
 Adds or removes class depending on its presence.
 
@@ -59,7 +59,7 @@ Adds or removes class depending on its presence.
 const item = document.querySelector('body');
 Elemental.removeClass(item, 'customClass');
 ```
-#### hasClass
+### hasClass
 
 Check if element has certain class name
 
@@ -69,7 +69,7 @@ const isActive = Elemental.hasClass(body, 'body_active');
 console.log(isActive); // true
 ```
 
-#### eject
+### eject
 
 Eject all Elemental methods in to Element.prototype allowing you to update class-control syntax.
 
