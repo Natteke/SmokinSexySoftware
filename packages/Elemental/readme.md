@@ -2,10 +2,12 @@
 
 - [About](#about)
 - Usage
-- [`addClass`](#addclass)
-- [`removeClass`](#removeclass) 
-- [`hasClass`](#hasclass)
-- [`eject`](#eject)
+  - [`addClass`](#addclass)
+  - [`removeClass`](#removeclass) 
+  - [`hasClass`](#hasclass)
+  - [`eject`](#eject)
+- [Browser Support](#browser-support)
+- [License](#license)
 
 ## About
 Elemental is most lightweight and Fault tolerant pure javascript DOM class-control helper with 100% functional test coverage.
