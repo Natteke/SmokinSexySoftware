@@ -2,12 +2,12 @@
 
 - [About](#about)
 - Usage
-- [`addClass`](#elemental.addclass)
-- [`removeClass`](#elemental.removeclass) 
-- [`hasClass`](#elemental.hasclass)
-- [`eject`](#elemental.eject)
+- [`addClass`](#addclass)
+- [`removeClass`](#removeclass) 
+- [`hasClass`](#hasclass)
+- [`eject`](#eject)
 
-##About
+## About
 Elemental is most lightweight and Fault tolerant pure javascript DOM class-control helper with 100% functional test coverage.
 
 If you are tired of connecting Jquery just to switch classes of elements, then this library is for you. 
@@ -33,8 +33,8 @@ npm i sss-elemental --save
 ```
 Do `import Elemental from 'sss-elemental';`
 
-##Usage
-#### Elemental.addClass
+## Usage
+#### addClass
 
 Adds string to element's class name
 
@@ -42,7 +42,7 @@ Adds string to element's class name
 const item = document.querySelector('body');
 Elemental.addClass(item, 'customClass');
 ```
-#### Elemental.removeClass
+#### removeClass
 
 Removes string from element's class name
 
@@ -51,7 +51,7 @@ const item = document.querySelector('body');
 Elemental.removeClass(item, 'customClass');
 ```
 
-#### Elemental.toggleClass
+#### toggleClass
 
 Adds or removes class depending on its presence.
 
@@ -59,7 +59,7 @@ Adds or removes class depending on its presence.
 const item = document.querySelector('body');
 Elemental.removeClass(item, 'customClass');
 ```
-#### Elemental.hasClass
+#### hasClass
 
 Check if element has certain class name
 
@@ -69,7 +69,7 @@ const isActive = Elemental.hasClass(body, 'body_active');
 console.log(isActive); // true
 ```
 
-#### Elemental.eject
+#### eject
 
 Eject all Elemental methods in to Element.prototype allowing you to update class-control syntax.
 
