@@ -1,8 +1,6 @@
 {
   "packages": [
-    "packages/Elemental",
-    "packages/Timer",
-    "packages/ScrollLocker"
+    "packages/*"
   ],
   "version": "independent",
   "npmClient": "yarn",
