@@ -26,11 +26,11 @@ const styles = {
     },
 };
 
-class Scroll {
+class ScrollLocker {
     constructor(element, params = {}) {
-        Scroll.counter += 1;
+        ScrollLocker.counter += 1;
         this.container = element || (() => new Error('1st argument element required'));
-        this.id = Scroll.counter;
+        this.id = ScrollLocker.counter;
         this.init();
     }
 
@@ -38,9 +38,14 @@ class Scroll {
 
     static preventDefault = e => e.preventDefault;
 
-    static isScroll = element => (
-        parseInt(getComputedStyle(element, null).height, 10) >= element.innerHeight
-    );
+    static isScroll = (element) => {
+        const startOverflow = element.style.overflowY;
+        const startWidth = element.clientWidth;
+        element.style.overflowY = 'hidden';
+        const endWidth = element.clientWidth;
+        element.style.overflowY = startOverflow;
+        return startWidth !== endWidth;
+    };
 
     static injectCss = (element, cssObj) => Object.assign(element.style, cssObj);
 
@@ -53,8 +58,8 @@ class Scroll {
 
     init = () => {
         const { overlay, container } = this;
-        Scroll.injectCss(overlay, styles.overlay);
-        Scroll.injectCss(container, styles.borderBox);
+        ScrollLocker.injectCss(overlay, styles.overlay);
+        ScrollLocker.injectCss(container, styles.borderBox);
         this.container.insertAdjacentElement('afterbegin', overlay);
         this.container.dataset.scroll = this.id;
         // container should not be static
@@ -67,15 +72,18 @@ class Scroll {
             container,
             overlay,
         } = this;
+        const isScroll = ScrollLocker.isScroll(container);
+        console.log('isScroll: ', isScroll);
+        if (!isScroll) return;
         // remind container width before hiding a scroll
         const width = container.scrollWidth;
         // test feature
         // container.addEventListener('touchmove', Scroll.preventDefault, { passive: false });
 
         // lock container's scroll
-        Scroll.injectCss(container, styles.lock);
+        ScrollLocker.injectCss(container, styles.lock);
         // display overlay
-        Scroll.injectCss(overlay, styles.show);
+        ScrollLocker.injectCss(overlay, styles.show);
         // detect actual scroll width
         const indent = `${container.scrollWidth - width}px`;
         // add margin to prevent overlay layering on content
@@ -92,14 +100,17 @@ class Scroll {
         const {
             container,
             overlay,
+            isActive,
         } = this;
+        console.dir(isActive);
+        if (!isActive) return;
         // test feature
-        // container.removeEventListener('touchmove', Scroll.preventDefault, { passive: false });
+        // container.removeEventListener('touchmove', ScrollLocker.preventDefault, { passive: false });
 
         // release container's scroll
-        Scroll.injectCss(container, styles.release);
+        ScrollLocker.injectCss(container, styles.release);
         // hide overlay
-        Scroll.injectCss(overlay, styles.hide);
+        ScrollLocker.injectCss(overlay, styles.hide);
         // remove pseudo margin
         container.style.paddingRight = '';
         const fixedElements = this.selectFixedElements();
@@ -109,7 +120,7 @@ class Scroll {
         this.isActive = false;
     };
 
-    selectFixedElements = () => document.querySelectorAll(`[data-scroll="${this.id}"] ${Scroll.fixedClass}`);
+    selectFixedElements = () => document.querySelectorAll(`[data-scroll="${this.id}"] ${ScrollLocker.fixedClass}`);
 }
 
-export default Scroll;
+export default ScrollLocker;
