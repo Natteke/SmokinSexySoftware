@@ -27,6 +27,11 @@ describe('Eject', () => {
         expect(typeof document.body.toggleClass).toBe('function');
     });
 
+    it('injectCss is defined', () => {
+        document.body.innerHTML = html;
+        expect(typeof document.body.injectCss).toBe('function');
+    });
+
     it('Element addClass', () => {
         document.body.innerHTML = html;
         const target = document.querySelector(targetSelector);
@@ -60,5 +65,14 @@ describe('Eject', () => {
         const target = document.querySelector(targetSelector);
         const hasClass = target.hasClass(testClass);
         expect(hasClass).toBe(true);
+    });
+
+    it('Element injectCss', () => {
+        document.body.innerHTML = '<div></div>';
+        const target = document.querySelector('div');
+        target.style.color = 'red';
+        const newStyle = { color: 'blue' };
+        target.injectCss(newStyle);
+        expect(target.style.color).toBe('blue');
     });
 });

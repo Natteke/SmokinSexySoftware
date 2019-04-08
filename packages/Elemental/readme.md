@@ -5,6 +5,7 @@
   - [`addClass`](#addclass)
   - [`removeClass`](#removeclass) 
   - [`hasClass`](#hasclass)
+  - [`injectCss`](#injectCss)
   - [`eject`](#eject)
 - [Browser Support](#browser-support)
 - [License](#license)
@@ -25,6 +26,8 @@ Then, connect `Elemental` before your scripts.
 ```
  
 ##### Package managers 😎
+
+If you use the package managers such as [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/), you have access to the classic library connection approach.
 
 ```sh
 # Yarn
@@ -70,6 +73,24 @@ const body = document.querySelector('body');
 const isActive = Elemental.hasClass(body, 'body_active');
 console.log(isActive); // true
 ```
+### injectCss
+
+Inject CSS in element.style directly
+
+> Don't forget about camelCase syntax when [styling from javascript](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style)
+
+```Javascript
+const body = document.querySelector('body');
+const styles = {
+    display: 'none',
+    overflowY: 'hidden',
+    boxSizing: 'border-box',
+}
+
+Elemental.injectCss(body, styles);
+```
+
+
 
 ### eject
 
@@ -90,18 +111,11 @@ body.toggleClass('body_custom');
 But either way it is an optional feature. Elemental does nothing behind the scene without your command, and use it or not it's up to you to decide.
 
 ## Browser Support
-**Desktop:**  
 Firefox 8+  
 Chrome 15+   
 Safari 4+  
 Opera 12.1+   
-IE 8+  
-
-**Mobile:**  
-Android Browser 4.2+  
-Chrome Mobile 63+  
-Firefox Mobile 28+   
-Maxthon 4+
+IE 10+  
  
 ## License 
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.

@@ -6,7 +6,7 @@ describe('Inject Css', () => {
         const target = document.querySelector('div');
         target.style.color = 'red';
         const newStyle = { color: 'blue' };
-        Elemental.assignCss(target, newStyle);
+        Elemental.injectCss(target, newStyle);
         expect(target.style.color).toBe('blue');
     });
 });

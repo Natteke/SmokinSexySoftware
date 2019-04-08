@@ -49,11 +49,15 @@ Elemental.eject = () => {
     });
 };
 
+// assign styles in element's style directly
+Elemental.injectCss = (element, cssObj) => Object.assign(element.style, cssObj);
+
 Elemental.propsToEject = [
     'addClass',
     'removeClass',
     'hasClass',
     'toggleClass',
+    'injectCss',
 ];
 
 export default Elemental;
