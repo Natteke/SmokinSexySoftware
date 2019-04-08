@@ -1,6 +1,7 @@
 <h1 align="center">Leash</h1>
 
 - [About](#about)
+- [Installation](#installation)
 - Usage
   - [`Init`](#init)
   - [`Lock`](#lock)
