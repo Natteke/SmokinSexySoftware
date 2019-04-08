@@ -27,5 +27,18 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },
-  "scripts": {}
+  "scripts": {
+    "Leash": "webpack ---env.p Leash --progress",
+    "Leash:prod": "webpack ---env.p Leash --env.production --progress",
+
+    "Timer": "webpack ---env.p Timer --progress",
+    "Timer:prod": "webpack ---env.p Timer --env.production --progress",
+    "Timer:jest": "jest Timer --coverage",
+
+    "Elemental": "webpack ---env.p Elemental --progress",
+    "Elemental:prod": "webpack ---env.p Elemental --env.production --progress",
+    "Elemental:jest": "jest Elemental --coverage",
+
+    "test": "jest --coverage"
+  }
 }
