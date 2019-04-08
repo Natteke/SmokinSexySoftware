@@ -1,1 +1,104 @@
-in progress...
+<h1 align="center">Timer</h1>
+
+- [About](#About)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Options](#Options)
+- [License](#license)
+
+## About
+Timer is a library for creating and updating content based on time.
+
+Watch, counters e.t.c.
+
+##Installation
+
+<a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Timer/dist/Timer.js">Download Timer</a>
+
+Then, connect `Timer` before your scripts.
+
+```html
+<script src="/assets/js/lib/Timer.js"></script>
+```
+ 
+##### Package managers 😎
+
+If you use the package managers such as [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/), you have access to the classic library connection approach.
+
+```sh
+# Yarn
+yarn add sss-timer
+
+# NPM
+npm i sss-timer --save
+```
+Do `import Timer from 'sss-timer';`
+
+## Usage
+### Create callback
+
+```Javascript
+    // Timer will call your function with the following params
+    // date - time object
+    // timer - timer instance
+    
+    function callback (date, timer) {
+      console.dir(date);
+      console.dir(timer);
+    }
+```
+
+### Init your timer
+
+```Javascript
+    const counter = new Timer(callback);
+```
+
+Or init and pass params
+
+```Javascript
+    const counter = new Timer(callback, {
+        time: 5000
+    });
+```
+
+## Options
+
+| Option  | Type  | Description |
+| :------------ |:---------------|:--------------|
+| time      | number| Initial Timer time state |
+| tick     | number        |   How much Timer should increment in each tick and call callback |
+| endBreakpoint | "days"/"hours"/"min"/"sec"/"ms"        | Prevents the transition to the next time division. 1hour 10min -> 70min |
+| addLeadingZeros | boolean        | Numbers in callback objects will be strings witn zeros, if number less than 10 |
+
+## Example
+
+```Javascript
+    const body = document.body;
+
+    const callback = function (date, timer) {
+        
+      body.innerHTML = 
+      'Timer state is: '
+      + date.days
+      + ' : '
+      + date.hours  
+      + ' : '
+      + date.min
+      + ' : '
+      + date.sec
+      
+    };
+    
+    const counter = new Timer(callback, {
+        time: 90485000,
+        // to count down just pass negative tick
+        tick: -1000,
+        addLeadingZeros: true,
+    });
+    
+    
+```
+
+## License 
+This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.

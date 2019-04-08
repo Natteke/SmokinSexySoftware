@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+</body>
+<script src="../../packages/Timer/dist/Timer.js"></script>
+<script>
+    const body = document.body;
+
+    // providing date example: days: 0, hours: 0, min: 0, sec: 0, ms: 0,
+    const callback = function (date, timer) {
+        console.dir(date);
+        console.dir(timer);
+        body.innerHTML =
+            'Timer state is: '
+            + date.days
+            + ' : '
+            + date.hours
+            + ' : '
+            + date.min
+            + ' : '
+            + date.sec
+    }
+
+    const counter = new Timer(callback, {
+        time: 90485000,
+        tick: -1000,
+        addLeadingZeros: true,
+    });
+
+
+</script>
+</html>
