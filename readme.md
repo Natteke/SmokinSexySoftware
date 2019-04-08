@@ -6,7 +6,7 @@
 ## Packages
   - [`Elemental`](./packages/Elemental#readme)
   - [`Timer`](./packages/Timer#readme)
-  - [`ScrollLocker`](./packages/ScrollLocker#readme)
+  - [`Leash`](./packages/Leash#readme)
  
 ## License 
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.
