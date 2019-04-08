@@ -71,8 +71,7 @@ ScrollLeash.releaseY();
 Check if container can be scrolled either
 
 ```Javascript
-    const isScrollable = Leash.isScrollable(document.body);
-    // true
+const isScrollable = Leash.isScrollable(document.body); // true
 ```
 
 ### isScrollBar
@@ -80,8 +79,7 @@ Check if container can be scrolled either
 Check scrollBar existence;
 
 ```Javascript
-    const isScrollBar = Leash.isScrollBar(document.body);
-    // true
+const isScrollBar = Leash.isScrollBar(document.body); // true
 ```
 
 ### isScrollAvailable
@@ -89,8 +87,7 @@ Check scrollBar existence;
 Check if scroll position can be changed;
 
 ```Javascript
-    const isScrollAvailable = Leash.isScrollAvailable(document.body);
-    // true
+const isScrollAvailable = Leash.isScrollAvailable(document.body); // true
 ```
  
 ## License 
