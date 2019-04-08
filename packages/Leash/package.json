@@ -1,9 +1,9 @@
 {
-  "name": "sss-scroll-locker",
+  "name": "sss-leash",
   "version": "2.0.0",
-  "description": "ScrollLocker",
+  "description": "Javascript scroll-control helper",
   "keywords": [
-    "ScrollLocker",
+    "leash",
     "smokinsexysoftware",
     "sss",
     "js",
@@ -13,7 +13,7 @@
   "author": "Andrey Ponomarenko <slaner2008@yandex.ru>",
   "homepage": "https://github.com/Natteke/SmokinSexySoftware#readme",
   "license": "MIT",
-  "main": "dist/ScrollLocker.js",
+  "main": "dist/leash.js",
   "files": [
     "dist",
     "src"
