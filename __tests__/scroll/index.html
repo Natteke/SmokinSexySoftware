@@ -6,30 +6,43 @@
 
 
 <style>
+    html {
+    }
     body {
+        padding-top: 60px;
         margin: 0;
     }
-    .high-container {
+
+    .inner-container {
         position: relative;
         height: 200px;
-        font-size: 50px;
-        /* position: fixed; */
-        margin: 0 auto;
+        font-size: 40px;
+        margin: 20px auto 0 auto;
+        border: 1px black solid;
         width: 50%;
-        overflow-y: scroll;
         word-break: break-all;
         box-sizing: border-box;
     }
+
+    .scrollableY {
+        overflow-y: scroll;
+    }
+
+    .scrollableX {
+        overflow-x: scroll;
+    }
+
     .fixed_element {
         word-break: break-all;
         position: fixed;
-        height: 50px;
+        height: 55px;
         padding: 0 5px;
         background-color: orangered;
         left: 0;
         right: 0;
-        top: 50%;
+        top: 0;
     }
+
     .absoluteIn {
         display: block;
         position: absolute;
@@ -39,17 +52,119 @@
         right: 0;
         top: 0;
     }
+
+    .fillerY {
+        width: 40px;
+        height: 2000px;
+        background-color: deeppink;
+    }
+
+    .fillerX {
+        width: 2000px;
+        height: 40px;
+        background-color: deeppink;
+    }
+
 </style>
 
 <body style="background-color: deepskyblue">
-<div class="high-container"><span class="absoluteIn" data-scroll-fixed></span>asdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasdasdasdasdasasdasd</div>
-<div class="fixed_element" data-scroll-fixed>FIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXED</div>
-<div style="width: 40px; height: 2000px; background-color: deeppink"></div>
-<script src="../../packages/ScrollLocker/dist/ScrollLocker.js"></script>
+<div data-scrollableY="true" class="inner-container scrollableY">
+    Scrollable Y
+    <div class="fillerY"></div>
+    <span class="absoluteIn" data-scroll-fixed></span>
+</div>
+
+<div data-scrollableY="false" class="inner-container">
+    NOT Scrollable Y
+    <span class="absoluteIn" data-scroll-fixed></span>
+</div>
+
+<div data-scrollableX="true" class="inner-container scrollableX">
+    Scrollable X
+    <div class="fillerX"></div>
+    <span class="absoluteIn" data-scroll-fixed></span>
+</div>
+
+<div data-scrollableX="false" class="inner-container">
+    NOT Scrollable X
+    <span class="absoluteIn" data-scroll-fixed></span>
+</div>
+
+<div data-scrollableXY="true" class="inner-container scrollableX scrollableY">
+    Scrollable XY
+    <span class="absoluteIn" data-scroll-fixed></span>
+    <div class="fillerX"></div>
+    <div class="fillerY"></div>
+</div>
+
+
+
+
+<div class="fixed_element" data-scroll-fixed>
+    FIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXEDFIXED
+</div>
+<div class="filler"></div>
+<script src="../../packages/Leash/dist/Leash.js"></script>
 <script>
-    const inner = document.querySelector('.high-container');
-    window.temp1 = new ScrollLocker(inner);
-    window.temp2 = new ScrollLocker(document.body);
+    const containerYTrue = document.querySelector('[data-scrollableY="true"]');
+    const containerYFalse = document.querySelector('[data-scrollableY="false"]');
+    const containerXTrue = document.querySelector('[data-scrollableX="true"]');
+    const containerXFalse = document.querySelector('[data-scrollableX="false"]');
+    const containerXYTrue = document.querySelector('[data-scrollableXY="true"]');
+
+    const ScrollYTrue = Leash.isScrollable(containerYTrue).y;
+    const ScrollYFalse = Leash.isScrollable(containerYFalse).y;
+    const ScrollXTrue = Leash.isScrollable(containerXTrue).x;
+    const ScrollXFalse = Leash.isScrollable(containerXFalse).x;
+    const ScrollXYTrue = Leash.isScrollable(containerXYTrue);
+
+    const BarYTrue = Leash.isScrollBar(containerYTrue).y;
+    const BarYFalse = Leash.isScrollBar(containerYFalse).y;
+    const BarXTrue = Leash.isScrollBar(containerXTrue).x;
+    const BarXFalse = Leash.isScrollBar(containerXFalse).x;
+    const BarXYTrue = Leash.isScrollBar(containerXYTrue);
+
+    console.dir('=== TEST SCROLL CHECK ===');
+    console.log(ScrollYTrue === true, ': test Scoll-Y');
+    console.log(ScrollYFalse === false, ': test Scoll-Y-false');
+    console.log(ScrollXTrue === true, ': test Scoll-X');
+    console.log(ScrollXFalse === false, ': test Scoll-X-false');
+    console.log(ScrollXYTrue.x === true && ScrollXYTrue.y === true, ': test Scoll-XY-true');
+
+    console.dir('=== TEST BAR CHECK ===');
+    console.log(BarYTrue === true, ': test BAR-Y');
+    console.log(BarYFalse === false, ': test BAR-Y-false');
+    console.log(BarXTrue === true, ': test BAR-X');
+    console.log(BarXFalse === false, ': test BAR-X-false');
+    console.log(BarXYTrue.x === true && BarXYTrue.y === true, ': test BAR-XY-true');
+
+    console.dir('=== PERFORMANCE ===');
+    const iterate = 1000;
+    const performanceScrollableStart = performance.now();
+    for (let i = 0; i < iterate; i++) {
+        let check = Leash.isScrollable(containerYTrue).y;
+    }
+    const performanceScrollableEnd = performance.now();
+
+    console.log(
+        'perf. isScrollable: ',
+        (performanceScrollableEnd - performanceScrollableStart) / iterate,
+        '.ms'
+    );
+
+    const performanceBarStart = performance.now();
+    for (let i = 0; i < iterate; i++) {
+        let check = Leash.isScrollBar(containerYTrue).y;
+    }
+    const performanceBarEnd = performance.now();
+
+    console.log(
+        'perf. isBar: ',
+        (performanceBarEnd - performanceBarStart) / iterate,
+        '.ms'
+    );
+
+
 </script>
 </body>
 </html>
