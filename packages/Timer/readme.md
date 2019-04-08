@@ -1,18 +1,18 @@
 <h1 align="center">Timer</h1>
 
-- [About](#About)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Options](#Options)
-- [Example](#Example)
-- [License](#License)
+- [About](#about)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Options](#options)
+- [Example](#example)
+- [License](#license)
 
 ## About
 Timer is a library for creating and updating content based on time.
 
 Watch, counters e.t.c.
 
-##Installation
+## Installation
 
 <a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Timer/dist/Timer.js">Download Timer</a>
 

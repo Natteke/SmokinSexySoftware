@@ -2,13 +2,13 @@
 
 - [About](#about)
 - Usage
-  - [`Init`](#Init)
-  - [`Lock`](#Lock)
-  - [`Release`](#Release)
-  - [`isScrollable`](#isScrollable)
-  - [`isScrollBar`](#isScrollBar)
-  - [`isScrollAvailable`](#isScrollAvailable)
-- [License](#License)
+  - [`Init`](#init)
+  - [`Lock`](#lock)
+  - [`Release`](#release)
+  - [`isScrollable`](#isscrollable)
+  - [`isScrollBar`](#isscrollbar)
+  - [`isScrollAvailable`](#isscrollavailable)
+- [License](#license)
 
 ## About
 Leash is complex solution to disable scroll in any container you want.
