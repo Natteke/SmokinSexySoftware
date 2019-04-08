@@ -8,6 +8,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
     "@babel/preset-env": "^7.4.2",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
@@ -33,12 +34,13 @@
 
     "Timer": "webpack ---env.p Timer --progress",
     "Timer:prod": "webpack ---env.p Timer --env.production --progress",
-    "Timer:jest": "jest Timer --coverage",
+    "Timer:test": "jest Timer --coverage",
 
     "Elemental": "webpack ---env.p Elemental --progress",
     "Elemental:prod": "webpack ---env.p Elemental --env.production --progress",
-    "Elemental:jest": "jest Elemental --coverage",
+    "Elemental:test": "jest Elemental --coverage",
 
+    "browserlist": "npx browserslist",
     "test": "jest --coverage"
   }
 }

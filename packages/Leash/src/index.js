@@ -29,7 +29,9 @@ class Leash {
 
     static isScrollable = isScrollable;
 
-    static fixedClass = '[data-scroll-fixed]';
+    static leashSelector = 'data-leash';
+
+    static fixedSelector = '[data-scroll-fixed]';
 
     isActiveX = false;
 
@@ -43,7 +45,8 @@ class Leash {
         injectCss(overlay, styles.overlay);
         injectCss(container, styles.borderBox);
         this.container.insertAdjacentElement('afterbegin', overlay);
-        this.container.dataset.scroll = this.id;
+        this.container.setAttribute(Leash.leashSelector, this.id);
+
         // container should not be static
         const containerPosition = getComputedStyle(this.container).position;
         if (containerPosition === 'static') this.container.style.position = 'relative';
@@ -57,8 +60,9 @@ class Leash {
 
     releaseX = releaseX.bind(this);
 
-    // selectFixedElements = () => document.querySelectorAll(`[data-scroll="${this.id}"] > ${Leash.fixedClass}`);
-    selectFixedElements = () => document.querySelectorAll(Leash.fixedClass);
+    // selectFixedElements = () => document.querySelectorAll(`[data-scroll="${this.id}"] > ${Leash.fixedSelector}`);
+    selectFixedElements = () => document.querySelectorAll(`[${Leash.leashSelector}="${this.id}"] ${Leash.fixedSelector}`);
+    // selectFixedElements = () => document.querySelectorAll(Leash.fixedSelector);
 }
 
 export default Leash;

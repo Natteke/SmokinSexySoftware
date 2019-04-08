@@ -90,6 +90,12 @@ Check if scroll position can be changed;
 ```Javascript
 const isScrollAvailable = Leash.isScrollAvailable(document.body); // true
 ```
+## Browser Support
+Firefox 8+  
+Chrome 15+   
+Safari 4+  
+Opera 12.1+   
+IE 10+  
  
 ## License 
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.

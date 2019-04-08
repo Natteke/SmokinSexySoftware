@@ -106,23 +106,23 @@
 <div class="filler"></div>
 <script src="../../packages/Leash/dist/Leash.js"></script>
 <script>
-    const containerYTrue = document.querySelector('[data-scrollableY="true"]');
-    const containerYFalse = document.querySelector('[data-scrollableY="false"]');
-    const containerXTrue = document.querySelector('[data-scrollableX="true"]');
-    const containerXFalse = document.querySelector('[data-scrollableX="false"]');
-    const containerXYTrue = document.querySelector('[data-scrollableXY="true"]');
+    var containerYTrue = document.querySelector('[data-scrollableY="true"]');
+    var containerYFalse = document.querySelector('[data-scrollableY="false"]');
+    var containerXTrue = document.querySelector('[data-scrollableX="true"]');
+    var containerXFalse = document.querySelector('[data-scrollableX="false"]');
+    var containerXYTrue = document.querySelector('[data-scrollableXY="true"]');
 
-    const ScrollYTrue = Leash.isScrollable(containerYTrue).y;
-    const ScrollYFalse = Leash.isScrollable(containerYFalse).y;
-    const ScrollXTrue = Leash.isScrollable(containerXTrue).x;
-    const ScrollXFalse = Leash.isScrollable(containerXFalse).x;
-    const ScrollXYTrue = Leash.isScrollable(containerXYTrue);
+    var ScrollYTrue = Leash.isScrollable(containerYTrue).y;
+    var ScrollYFalse = Leash.isScrollable(containerYFalse).y;
+    var ScrollXTrue = Leash.isScrollable(containerXTrue).x;
+    var ScrollXFalse = Leash.isScrollable(containerXFalse).x;
+    var ScrollXYTrue = Leash.isScrollable(containerXYTrue);
 
-    const BarYTrue = Leash.isScrollBar(containerYTrue).y;
-    const BarYFalse = Leash.isScrollBar(containerYFalse).y;
-    const BarXTrue = Leash.isScrollBar(containerXTrue).x;
-    const BarXFalse = Leash.isScrollBar(containerXFalse).x;
-    const BarXYTrue = Leash.isScrollBar(containerXYTrue);
+    var BarYTrue = Leash.isScrollBar(containerYTrue).y;
+    var BarYFalse = Leash.isScrollBar(containerYFalse).y;
+    var BarXTrue = Leash.isScrollBar(containerXTrue).x;
+    var BarXFalse = Leash.isScrollBar(containerXFalse).x;
+    var BarXYTrue = Leash.isScrollBar(containerXYTrue);
 
     console.log('=== TEST SCROLL CHECK ===');
     console.log(ScrollYTrue === true, ': test Scoll-Y');
@@ -139,12 +139,12 @@
     console.log(BarXYTrue.x === true && BarXYTrue.y === true, ': test BAR-XY-true');
 
     console.log('=== PERFORMANCE ===');
-    const iterate = 1000;
-    const performanceScrollableStart = performance.now();
-    for (let i = 0; i < iterate; i++) {
-        let check = Leash.isScrollable(containerYTrue).y;
+    var iterate = 1000;
+    var performanceScrollableStart = performance.now();
+    for (var i = 0; i < iterate; i++) {
+        var check = Leash.isScrollable(containerYTrue).y;
     }
-    const performanceScrollableEnd = performance.now();
+    var performanceScrollableEnd = performance.now();
 
     console.log(
         'perf. isScrollable: ',
@@ -152,11 +152,11 @@
         '.ms'
     );
 
-    const performanceBarStart = performance.now();
-    for (let i = 0; i < iterate; i++) {
-        let check = Leash.isScrollBar(containerYTrue).y;
+    var performanceBarStart = performance.now();
+    for (var i = 0; i < iterate; i++) {
+        var check = Leash.isScrollBar(containerYTrue).y;
     }
-    const performanceBarEnd = performance.now();
+    var performanceBarEnd = performance.now();
 
     console.log(
         'perf. isBar: ',
