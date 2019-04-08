@@ -1,6 +1,6 @@
 {
   "name": "sss-elemental",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Pack of helpers to manipulate elements class names",
   "author": "Andrey Ponomarenko <slaner2008@yandex.ru>",
   "homepage": "https://github.com/Natteke/SmokinSexySoftware#readme",
@@ -25,5 +25,5 @@
     "DOM",
     "sss"
   ],
-  "gitHead": "534c344481169e247a1b08f8bcd796a974fd77b3"
+  "gitHead": "2a42e994a79a4591b82f1df03db3a35bec0ccd3a"
 }
