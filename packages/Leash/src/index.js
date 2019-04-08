@@ -3,8 +3,8 @@ import { lockY, lockX } from './components/lock';
 import { releaseY, releaseX } from './components/release';
 import {
     isScrollBar,
-    isScrollable,
     isScrollAvailable,
+    isScrollable,
     injectCss,
 } from './components/helpers';
 
@@ -57,7 +57,8 @@ class Leash {
 
     releaseX = releaseX.bind(this);
 
-    selectFixedElements = () => document.querySelectorAll(`[data-scroll="${this.id}"] > ${Leash.fixedClass}`);
+    // selectFixedElements = () => document.querySelectorAll(`[data-scroll="${this.id}"] > ${Leash.fixedClass}`);
+    selectFixedElements = () => document.querySelectorAll(Leash.fixedClass);
 }
 
 export default Leash;

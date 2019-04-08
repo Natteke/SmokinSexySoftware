@@ -1,14 +1,16 @@
 {
   "name": "sss-leash",
   "version": "2.1.0",
-  "description": "Javascript scroll-control helper",
+  "description": "Disable container scroll whenever you want.",
   "keywords": [
     "leash",
     "smokinsexysoftware",
     "sss",
     "js",
     "helper",
-    "scroll"
+    "scroll",
+    "lock",
+    "locker"
   ],
   "author": "Andrey Ponomarenko <slaner2008@yandex.ru>",
   "homepage": "https://github.com/Natteke/SmokinSexySoftware#readme",
