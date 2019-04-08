@@ -4,7 +4,8 @@
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [Options](#Options)
-- [License](#license)
+- [Example](#Example)
+- [License](#License)
 
 ## About
 Timer is a library for creating and updating content based on time.
@@ -74,20 +75,15 @@ Or init and pass params
 ## Example
 
 ```Javascript
-    const body = document.body;
-
     const callback = function (date, timer) {
-        
-      body.innerHTML = 
-      'Timer state is: '
-      + date.days
-      + ' : '
-      + date.hours  
-      + ' : '
-      + date.min
-      + ' : '
-      + date.sec
-      
+          document.body.innerHTML = 'Timer state is: '
+          + date.days
+          + ' : '
+          + date.hours  
+          + ' : '
+          + date.min
+          + ' : '
+          + date.sec
     };
     
     const counter = new Timer(callback, {
@@ -96,9 +92,9 @@ Or init and pass params
         tick: -1000,
         addLeadingZeros: true,
     });
-    
-    
 ```
+
+>Note: If you count down, timer will stop automatically when reach 0. 
 
 ## License 
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.
