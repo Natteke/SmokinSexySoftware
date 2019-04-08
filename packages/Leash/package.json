@@ -1,6 +1,6 @@
 {
   "name": "sss-leash",
-  "version": "2.0.2",
+  "version": "2.0.0",
   "description": "Javascript scroll-control helper",
   "keywords": [
     "leash",
@@ -29,5 +29,4 @@
   "bugs": {
     "url": "https://github.com/Natteke/SmokinSexySoftware/issues"
   },
-  "gitHead": "2a42e994a79a4591b82f1df03db3a35bec0ccd3a"
 }
