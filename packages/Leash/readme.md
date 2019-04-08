@@ -19,7 +19,7 @@ Unlike many other ways to block the scroll you will not see any elements jumps, 
 
 ##Installation
 
-<a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Elemental/dist/Leash.js">Download Leash</a>
+<a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Leash/dist/Leash.js">Download Leash</a>
 
 Then, connect `Leash` before your scripts.
 
@@ -42,8 +42,8 @@ Do `import Leash from 'sss-leash';`
 ### Create new Leash
 
 ```Javascript
-    const body = document.body;
-    const ScrollLeash = new Leash(body);
+const body = document.body;
+const ScrollLeash = new Leash(body);
 ```
 ## Methods
 
@@ -55,7 +55,7 @@ Lock scroll X or Y
 ScrollLeash.lockX();
 ScrollLeash.lockY();
 ```
-> add `[data-scroll-fixed]` attribute to any fixed element on the page
+> add `[data-scroll-fixed]` attribute to any `position:fixed` element on the page
 
 ### Release
 
