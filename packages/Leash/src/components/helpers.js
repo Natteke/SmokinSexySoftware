@@ -32,8 +32,10 @@ export const isScrollAvailable = (element) => {
     };
 
     // scroll it at least for 1 px and save new position
-    element.scrollTo(0, 0);
-    element.scrollTo(1, 1);
+    element.scrollTop = 0;
+    element.scrollTop = 1;
+    element.scrollLeft = 0;
+    element.scrollLeft = 1;
 
     const ends = {
         x: element.scrollLeft,
@@ -41,7 +43,8 @@ export const isScrollAvailable = (element) => {
     };
 
     // return initial position
-    element.scrollTo(starts.x, starts.y);
+    element.scrollTop = starts.y;
+    element.scrollLeft = starts.x;
 
     // if scroll position was changed
     // then it can be scrolled

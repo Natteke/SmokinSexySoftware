@@ -124,21 +124,21 @@
     const BarXFalse = Leash.isScrollBar(containerXFalse).x;
     const BarXYTrue = Leash.isScrollBar(containerXYTrue);
 
-    console.dir('=== TEST SCROLL CHECK ===');
+    console.log('=== TEST SCROLL CHECK ===');
     console.log(ScrollYTrue === true, ': test Scoll-Y');
     console.log(ScrollYFalse === false, ': test Scoll-Y-false');
     console.log(ScrollXTrue === true, ': test Scoll-X');
     console.log(ScrollXFalse === false, ': test Scoll-X-false');
     console.log(ScrollXYTrue.x === true && ScrollXYTrue.y === true, ': test Scoll-XY-true');
 
-    console.dir('=== TEST BAR CHECK ===');
+    console.log('=== TEST BAR CHECK ===');
     console.log(BarYTrue === true, ': test BAR-Y');
     console.log(BarYFalse === false, ': test BAR-Y-false');
     console.log(BarXTrue === true, ': test BAR-X');
     console.log(BarXFalse === false, ': test BAR-X-false');
     console.log(BarXYTrue.x === true && BarXYTrue.y === true, ': test BAR-XY-true');
 
-    console.dir('=== PERFORMANCE ===');
+    console.log('=== PERFORMANCE ===');
     const iterate = 1000;
     const performanceScrollableStart = performance.now();
     for (let i = 0; i < iterate; i++) {
