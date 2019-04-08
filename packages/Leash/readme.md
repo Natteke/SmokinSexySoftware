@@ -17,7 +17,7 @@ Unlike many other ways to block the scroll you will not see any elements jumps, 
 
    
 
-##Installation
+## Installation
 
 <a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Leash/dist/Leash.js">Download Leash</a>
 
