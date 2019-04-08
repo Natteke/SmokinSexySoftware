@@ -15,7 +15,7 @@
   "author": "Andrey Ponomarenko <slaner2008@yandex.ru>",
   "homepage": "https://github.com/Natteke/SmokinSexySoftware#readme",
   "license": "MIT",
-  "main": "dist/leash.js",
+  "main": "dist/Leash.js",
   "files": [
     "dist",
     "src"
