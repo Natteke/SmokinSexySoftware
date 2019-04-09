@@ -25,7 +25,7 @@ Watch, counters e.t.c.
  
 ##### Package managers 😎
 
-If you use the package managers such as [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/), you have access to the classic library connection approach.
+If you are using package managers such as [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/), import this lib as usual.
 
 ```sh
 # Yarn

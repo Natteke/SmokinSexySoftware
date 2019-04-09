@@ -29,7 +29,7 @@ If you are tired of connecting Jquery just to switch classes of elements, then t
  
 ##### Package managers 😎
 
-If you use the package managers such as [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/), you have access to the classic library connection approach.
+If you are using package managers such as [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/), import this lib as usual.
 
 ```sh
 # Yarn
@@ -111,13 +111,6 @@ body.toggleClass('body_custom');
 ```
 > This technique called [Monkey patching](https://ru.wikipedia.org/wiki/Monkey_patch) and in large projects it is considered as not a best practice.
 But either way it is an optional feature. Elemental does nothing behind the scene without your command, and use it or not it's up to you to decide.
-
-## Browser Support
-Firefox 8+  
-Chrome 15+   
-Safari 4+  
-Opera 12.1+   
-IE 10+  
  
 ## License 
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.

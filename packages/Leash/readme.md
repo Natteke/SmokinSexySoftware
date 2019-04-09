@@ -28,6 +28,8 @@ Leash allows you to sit in the browser's scroll cockpit, and disable it at will.
  
 ##### Package managers 😎
 
+If you are using package managers such as [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/), import this lib as usual.
+
 ```sh
 # Yarn
 yarn add sss-leash
@@ -70,7 +72,7 @@ ScrollLeash.releaseY();
 Check isScrollbar && isScrollAvailable
 
 ```Javascript
-const isScrollable = Leash.isScrollable(document.body); // true
+const isScrollable = Leash.isScrollable(document.documentElement); // true
 ```
 
 ### isScrollBar
@@ -78,7 +80,7 @@ const isScrollable = Leash.isScrollable(document.body); // true
 Check scrollBar existence;
 
 ```Javascript
-const isScrollBar = Leash.isScrollBar(document.body); // true
+const isScrollBar = Leash.isScrollBar(document.documentElement); // true
 ```
 
 ### isScrollAvailable
@@ -86,14 +88,8 @@ const isScrollBar = Leash.isScrollBar(document.body); // true
 Check if scroll position can be changed;
 
 ```Javascript
-const isScrollAvailable = Leash.isScrollAvailable(document.body); // true
+const isScrollAvailable = Leash.isScrollAvailable(document.documentElement); // true
 ```
-## Browser Support
-- Firefox 8+  
-- Chrome 15+   
-- Safari 4+  
-- Opera 12.1+   
-- IE 10+  
  
 ## License 
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.
