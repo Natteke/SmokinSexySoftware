@@ -12,21 +12,19 @@
 - [License](#license)
 
 ## About
-Leash is complex solution to disable scroll in any container you want.
-
-Unlike many other ways to block the scroll you will not see any elements jumps, lags and and so on. Existed scroll will be replaced with the fake one.
-
-   
+Leash allows you to sit in the browser's scroll cockpit, and disable it at will.
 
 ## Installation
 
-<a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Leash/dist/Leash.js">Download Leash</a>
+1) <a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Leash/dist/Leash.js">Download Leash</a>
 
-Then, connect `Leash` before your scripts.
+2) Connect `Leash` before your scripts.
 
 ```html
 <script src="/assets/js/lib/Leash.js"></script>
 ```
+
+3) See how to [create](#init) the Leash. 
  
 ##### Package managers 😎
 
@@ -69,7 +67,7 @@ ScrollLeash.releaseY();
 
 ### isScrollable
 
-Check if container can be scrolled either
+Check isScrollbar && isScrollAvailable
 
 ```Javascript
 const isScrollable = Leash.isScrollable(document.body); // true
@@ -91,11 +89,11 @@ Check if scroll position can be changed;
 const isScrollAvailable = Leash.isScrollAvailable(document.body); // true
 ```
 ## Browser Support
-Firefox 8+  
-Chrome 15+   
-Safari 4+  
-Opera 12.1+   
-IE 10+  
+- Firefox 8+  
+- Chrome 15+   
+- Safari 4+  
+- Opera 12.1+   
+- IE 10+  
  
 ## License 
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.

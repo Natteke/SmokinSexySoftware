@@ -17,13 +17,15 @@ If you are tired of connecting Jquery just to switch classes of elements, then t
 
 ##Installation
 
-<a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Elemental/dist/Elemental.js">Download Elemental</a>
+1) <a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Elemental/dist/Elemental.js">Download Elemental</a>
 
-Then, connect `Elemental` before your scripts.
+2) Connect `Elemental` before your scripts.
 
 ```html
 <script src="/assets/js/lib/Elemental.js"></script>
 ```
+
+3) See how to [use](#usage) the Elemental.
  
 ##### Package managers 😎
 

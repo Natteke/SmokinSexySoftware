@@ -14,13 +14,14 @@ Watch, counters e.t.c.
 
 ## Installation
 
-<a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Timer/dist/Timer.js">Download Timer</a>
+1) <a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Timer/dist/Timer.js">Download Timer</a>
 
-Then, connect `Timer` before your scripts.
+2) Connect `Timer` before your scripts.
 
 ```html
 <script src="/assets/js/lib/Timer.js"></script>
 ```
+3) See how to [use](#usage) the Timer.
  
 ##### Package managers 😎
 
