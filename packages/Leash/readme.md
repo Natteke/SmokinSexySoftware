@@ -20,11 +20,11 @@ Leash allows you to sit in the browser's scroll cockpit, and disable it at will.
 
 2) Connect `Leash` before your scripts.
 
+3) See how to [create](#init) the Leash. 
+
 ```html
 <script src="/assets/js/lib/Leash.js"></script>
 ```
-
-3) See how to [create](#init) the Leash. 
  
 ##### Package managers 😎
 
@@ -69,7 +69,7 @@ ScrollLeash.releaseY();
 
 ### isScrollable
 
-Check isScrollbar && isScrollAvailable
+Checks isScrollbar and isScrollAvailable
 
 ```Javascript
 const isScrollable = Leash.isScrollable(document.documentElement); // true
@@ -77,7 +77,7 @@ const isScrollable = Leash.isScrollable(document.documentElement); // true
 
 ### isScrollBar
 
-Check scrollBar existence;
+Checks scrollBar existence;
 
 ```Javascript
 const isScrollBar = Leash.isScrollBar(document.documentElement); // true
@@ -85,7 +85,7 @@ const isScrollBar = Leash.isScrollBar(document.documentElement); // true
 
 ### isScrollAvailable
 
-Check if scroll position can be changed;
+Checks if container can be scrolled
 
 ```Javascript
 const isScrollAvailable = Leash.isScrollAvailable(document.documentElement); // true
