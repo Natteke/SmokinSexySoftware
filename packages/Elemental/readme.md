@@ -16,7 +16,7 @@ Elemental is most lightweight and Fault tolerant pure javascript DOM class-contr
 
 If you are tired of connecting Jquery just to switch classes of elements, then this library is for you. 
 
-##Installation
+## Installation
 
 1) <a target="_blank" href="https://raw.githubusercontent.com/Natteke/SmokinSexySoftware/master/packages/Elemental/dist/Elemental.js">Download Elemental</a>
 
