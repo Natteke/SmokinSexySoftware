@@ -6,6 +6,7 @@
   - [`removeClass`](#removeclass) 
   - [`hasClass`](#hasclass)
   - [`injectCss`](#injectCss)
+  - [`toggleClass`](#toggleclass)
   - [`eject`](#eject)
 - [Browser Support](#browser-support)
 - [License](#license)
