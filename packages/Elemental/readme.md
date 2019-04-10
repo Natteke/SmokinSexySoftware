@@ -65,7 +65,7 @@ Adds or removes class depending on its presence.
 
 ```Javascript
 const item = document.querySelector('body');
-Elemental.removeClass(item, 'customClass');
+Elemental.toggleClass(item, 'customClass');
 ```
 ### hasClass
 
