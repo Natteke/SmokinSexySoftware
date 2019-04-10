@@ -1,6 +1,7 @@
 <h1 align="center">Elemental</h1>
 
 - [About](#about)
+- [Installation](#installation)
 - Usage
   - [`addClass`](#addclass)
   - [`removeClass`](#removeclass) 
