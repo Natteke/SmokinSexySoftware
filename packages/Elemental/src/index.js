@@ -1,5 +1,8 @@
-const Elemental = {};
+/*! SmokinSexySoftware: sss-elemental
+* https://github.com/Natteke
+* Copyright (c) 2019-present Andrey Ponomarenko; */
 
+const Elemental = {};
 
 // add function setStyle from js object
 /* https://regex101.com/r/9kYy03/4 */

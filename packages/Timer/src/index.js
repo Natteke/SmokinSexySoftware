@@ -1,3 +1,7 @@
+/*! SmokinSexySoftware: sss-timer
+* https://github.com/Natteke
+* Copyright (c) 2019-present Andrey Ponomarenko; */
+
 class TimeCounter {
     constructor(callback, params = {}) {
         this.onTick = callback || (() => new Error('1st argument callback required'));

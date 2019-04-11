@@ -1,3 +1,7 @@
+/*! SmokinSexySoftware: sss-leash
+* https://github.com/Natteke
+* Copyright (c) 2019-present Andrey Ponomarenko; */
+
 import styles from './components/styles';
 import { lockY, lockX } from './components/lock';
 import { releaseY, releaseX } from './components/release';
