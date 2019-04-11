@@ -10,7 +10,7 @@
 ## About
 Timer is a library for creating and updating content based on time.
 
-Watch, counters e.t.c.
+Like watch, counters, ads e.t.c.
 
 ## Installation
 
