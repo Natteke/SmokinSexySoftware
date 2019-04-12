@@ -14,6 +14,7 @@ class TimeCounter {
 
     // reset()
     // refactor with state pattern
+    // static parseTime
     interval = null;
 
     breakpoints = {
