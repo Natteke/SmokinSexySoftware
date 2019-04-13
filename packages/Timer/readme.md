@@ -95,7 +95,7 @@ Or init and pass params
     });
 ```
 
->Note: If you count down, timer will stop automatically when reach 0. 
+>Note: If you count down, timer will stop automatically when it reach 0. 
 
 ## License 
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.
