@@ -13,8 +13,6 @@
 
     // providing date example: days: 0, hours: 0, min: 0, sec: 0, ms: 0,
     const callback = function (date, timer) {
-        console.dir(date);
-        console.dir(timer);
         body.innerHTML =
             'Timer state is: '
             + date.days
@@ -24,12 +22,16 @@
             + date.min
             + ' : '
             + date.sec
+    };
+    function stop() {
+        console.log('stop callback');
     }
 
     const counter = new Timer(callback, {
-        time: 90485000,
+        time: 3001,
         tick: -1000,
         addLeadingZeros: true,
+        onStop:stop,
     });
 
 

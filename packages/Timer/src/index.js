@@ -5,6 +5,7 @@
 class TimeCounter {
     constructor(callback, params = {}) {
         this.onTick = callback || (() => new Error('1st argument callback required'));
+        this.onStop = params.onStop || (() => {});
         this.time = params.time || 0;
         this.tick = params.tick || 1000;
         this.endBreakpoint = params.endBreakpoint || 'days';
@@ -87,7 +88,10 @@ class TimeCounter {
         this.onTick(newDate, this);
     };
 
-    stop = () => clearInterval(this.interval);
+    stop = () => {
+        clearInterval(this.interval);
+        this.onStop();
+    };
 }
 
 export default TimeCounter;
