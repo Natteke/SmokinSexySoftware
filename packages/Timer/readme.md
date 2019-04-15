@@ -70,8 +70,7 @@ Or init and pass params
 | :------------ |:---------------|:--------------|
 | time      | number| Initial Timer time state |
 | tick     | number        |   How much Timer should increment in each tick and call callback |
-| endBreakpoint | "days"/"hours"/"min"/"sec"/"ms"        | Prevents the transition to the next time division. 1hour 10min -> 70min |
-| addLeadingZeros | boolean        | Numbers in callback objects will be strings witn zeros, if number less than 10 |
+| cutOff | "days"/"hours"/"min"/"sec"/"ms"        | Prevents the transition to the next time division. 1hour 10min -> 70min |
 
 ## Example
 

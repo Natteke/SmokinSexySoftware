@@ -1,93 +1,75 @@
 /*! SmokinSexySoftware: sss-timer
 * https://github.com/Natteke
 * Copyright (c) 2019-present Andrey Ponomarenko; */
+import {
+    breakpoints,
+    getEmptyDate,
+    addZeros,
+    keys,
+} from './components/helpers';
 
-class TimeCounter {
+class Timer {
     constructor(callback, params = {}) {
         this.onTick = callback || (() => new Error('1st argument callback required'));
         this.time = params.time || 0;
         this.tick = params.tick || 1000;
-        this.endBreakpoint = params.endBreakpoint || 'days';
-        this.addLeadingZeros = params.addLeadingZeros || false;
-        this.start();
+        this.cutOff = params.cutOff || 'days';
     }
 
-    // reset()
-    // refactor with state pattern
-    // static parseTime
+    static breakpoints = breakpoints;
+
+    static addZeros = addZeros;
+
+    initialTime = this.time;
+
     interval = null;
 
-    breakpoints = {
-        ms: 1,
-        sec: 1000,
-        min: 60000,
-        hours: 3600000,
-        days: 86400000,
-    };
-
-    date = {
-        ms: 0,
-        sec: 0,
-        min: 0,
-        hours: 0,
-        days: 0,
-    };
+    date = getEmptyDate();
 
     start = () => {
-        const interval = Math.abs(this.tick);
+        const tick = Math.abs(this.tick);
         // вызываем первый коллбек синхронно
-        this.iterate();
+        this.render();
         // запускаем итерацию по интервалу
         this.interval = setInterval(() => {
             this.time += this.tick;
-            this.iterate();
+            this.render();
             if (this.time <= 0) this.stop();
-        }, interval);
+        }, tick);
     };
 
-    iterate = () => {
-        this.date = this.parseTime();
-        this.response();
+    render = () => {
+        this.date = Timer.convert(this.time, this.cutOff);
+        this.onTick(this.date, this);
     };
 
-    parseTime = () => {
-        let rest = this.time + 0;
-        const { breakpoints: bp } = this;
-        const newDate = {
-            days: 0,
-            hours: 0,
-            min: 0,
-            sec: 0,
-            ms: 0,
-        };
+    static convert = (ms, division = 'days') => {
+        const {
+            breakpoints: b,
+        } = Timer;
+        const date = getEmptyDate();
+        let rest = ms;
+        let prop;
 
-        for (const prop in newDate) {
-            if (
-                rest >= bp[prop] && bp[prop] <= bp[this.endBreakpoint]
-            ) {
-                newDate[prop] = Math.floor(rest / bp[prop]);
-                rest -= (bp[prop] * newDate[prop]);
-            }
+        for (
+            let i = 0;
+            rest >= b[keys[i]] && b[keys[i]] <= b[division] && i < keys.length;
+            i++
+        ) {
+            prop = keys[i];
+            date[prop] = Math.floor(rest / b[prop]);
+            rest -= (b[prop] * date[prop]);
         }
-        return newDate;
-    };
 
-    addZeros = (date) => {
-        const newDate = { ...date };
-        Object.keys(newDate)
-            .forEach((e) => {
-                newDate[e] = newDate[e] < 10 ? `0${newDate[e]}` : `${newDate[e]}`;
-            });
-        return newDate;
-    };
-
-    response = () => {
-        const { date, addZeros } = this;
-        const newDate = this.addLeadingZeros ? addZeros(date) : { ...date };
-        this.onTick(newDate, this);
+        return date;
     };
 
     stop = () => clearInterval(this.interval);
+
+    reset = () => {
+        this.time = this.initialTime;
+        this.render();
+    };
 }
 
-export default TimeCounter;
+export default Timer;
