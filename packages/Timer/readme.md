@@ -90,7 +90,7 @@ Or init and pass params
     
     const counter = new Timer(callback, {
         time: 90485000,
-        // to count down just pass negative tick
+        // to count down just pass negative tick int
         tick: -1000,
         addLeadingZeros: true,
     });
