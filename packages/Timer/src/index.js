@@ -89,8 +89,10 @@ class TimeCounter {
     };
 
     stop = () => {
+        const { date, addZeros } = this;
+        const newDate = this.addLeadingZeros ? addZeros(date) : { ...date };
         clearInterval(this.interval);
-        this.onStop();
+        this.onStop(newDate, this);
     };
 }
 
