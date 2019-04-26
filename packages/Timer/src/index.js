@@ -11,6 +11,7 @@ import {
 class Timer {
     constructor(callback, params = {}) {
         this.onTick = callback || (() => new Error('1st argument callback required'));
+        this.onStop = params.onStop || (() => {});
         this.time = params.time || 0;
         this.tick = params.tick || 1000;
         this.cutOff = params.cutOff || 'days';
@@ -64,11 +65,16 @@ class Timer {
         return date;
     };
 
-    stop = () => clearInterval(this.interval);
-
     reset = () => {
         this.time = this.initialTime;
         this.render();
+    };
+
+    stop = () => {
+        const { date, addZeros } = this;
+        const newDate = this.addLeadingZeros ? addZeros(date) : { ...date };
+        clearInterval(this.interval);
+        this.onStop(newDate, this);
     };
 }
 
