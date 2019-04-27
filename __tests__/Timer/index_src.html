@@ -12,8 +12,25 @@
 
 <script>
     // days: 23, hours: 3, min: 41, sec: 40, ms: 0,
-    const time = Timer.convert(2000500000);
-    console.log(time);
+    // let time;
+    // time = Timer.convert(2000500000);
+    // console.log(time);
+    // time = Timer.convert(5000);
+    // console.log(time);
+
+
+    function cb(a,b) {
+        console.log(a);
+    }
+
+    const timer = new Timer(cb, {
+        time: 50000,
+    });
+    timer.start();
+
+    setTimeout(() => {
+        timer.stop();
+    }, 10000)
 
 </script>
 </html>

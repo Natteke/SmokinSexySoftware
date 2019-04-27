@@ -11,6 +11,7 @@ describe('Countdown', () => {
             // count down
             tick: -1000,
         });
+        counter.start();
         const tick = Math.abs(counter.tick);
         const actualTime = times * tick;
 

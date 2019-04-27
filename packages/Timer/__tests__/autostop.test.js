@@ -13,6 +13,7 @@ describe('Autostop', () => {
             tick: tick * -1,
             onStop: stopCallback,
         });
+        counter.start();
 
         setTimeout(() => {
             expect(callback.mock.calls.length)
@@ -34,6 +35,7 @@ describe('Autostop', () => {
             time,
             tick: tick * -1,
         });
+        counter.start();
 
         setTimeout(() => {
             expect(callback.mock.calls.length)

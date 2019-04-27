@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="../../packages/Timer/dev/Timer.test.js"></script>
+
+<script>
+
+
+
+    let Time = 1000;
+    const iterate = 10000;
+    const performanceScrollableStart = performance.now();
+    for (let i = 0; i < iterate; i++) {
+        Timer.convert(Time*=1.01);
+    }
+    const performanceScrollableEnd = performance.now();
+    console.log(
+        'convertation performance: ',
+        (performanceScrollableEnd - performanceScrollableStart) / iterate,
+        '.ms'
+    );
+
+
+
+
+</script>
+
+</body>
+</html>

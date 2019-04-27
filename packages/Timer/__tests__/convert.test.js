@@ -1,12 +1,13 @@
 import Timer from '../src/index';
 
-describe('Time parsing', () => {
+describe('Time convertation', () => {
     it('Case Seconds / 500 000', () => {
         const parseTime = jest.fn(x => x);
         const counter = new Timer(parseTime, {
             time: 500000,
-            endBreakpoint: 'sec',
+            breakOn: 'sec',
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 0, hours: 0, min: 0, sec: 500, ms: 0,
@@ -18,8 +19,9 @@ describe('Time parsing', () => {
         const parseTime = jest.fn(x => x);
         const counter = new Timer(parseTime, {
             time: 2000500000,
-            endBreakpoint: 'min',
+            breakOn: 'min',
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 0, hours: 0, min: 33341, sec: 40, ms: 0,
@@ -31,8 +33,9 @@ describe('Time parsing', () => {
         const parseTime = jest.fn(x => x);
         const counter = new Timer(parseTime, {
             time: 2000500000,
-            endBreakpoint: 'hours',
+            breakOn: 'hours',
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 0, hours: 555, min: 41, sec: 40, ms: 0,
@@ -44,6 +47,7 @@ describe('Time parsing', () => {
         const counter = new Timer(parseTime, {
             time: -10000,
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 // because.. c'mon.. negative time?
@@ -57,6 +61,7 @@ describe('Time parsing', () => {
         const counter = new Timer(parseTime, {
             time: 50000,
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 0, hours: 0, min: 0, sec: 50, ms: 0,
@@ -69,6 +74,7 @@ describe('Time parsing', () => {
         const counter = new Timer(parseTime, {
             time: 500000,
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 0, hours: 0, min: 8, sec: 20, ms: 0,
@@ -81,6 +87,7 @@ describe('Time parsing', () => {
         const counter = new Timer(parseTime, {
             time: 5184025000,
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 60, hours: 0, min: 0, sec: 25, ms: 0,
@@ -94,6 +101,7 @@ describe('Time parsing', () => {
         const counter = new Timer(parseTime, {
             time: 2000500000,
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 23, hours: 3, min: 41, sec: 40, ms: 0,
@@ -106,6 +114,7 @@ describe('Time parsing', () => {
         const counter = new Timer(parseTime, {
             time: 3000600000,
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 34, hours: 17, min: 30, sec: 0, ms: 0,
@@ -118,6 +127,7 @@ describe('Time parsing', () => {
         const counter = new Timer(parseTime, {
             time: 3000600005,
         });
+        counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 days: 34, hours: 17, min: 30, sec: 0, ms: 5,
