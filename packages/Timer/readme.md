@@ -4,6 +4,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Options](#options)
+- [Methods](#Methods)
 - [Example](#example)
 - [License](#license)
 
@@ -53,16 +54,24 @@ Do `import Timer from 'sss-timer';`
 ### Init your timer
 
 ```Javascript
-    const counter = new Timer(callback);
+    const timer = new Timer(callback);
+
+    // start your timer 
+    timer.start();
 ```
 
 Or init and pass params
 
 ```Javascript
-    const counter = new Timer(callback, {
+    const timer = new Timer(callback, {
         time: 5000
     });
+    
+    // start your timer 
+    timer.start();
 ```
+
+
 
 ## Options
 
@@ -73,25 +82,102 @@ Or init and pass params
 | onStop | function        | Calls after timer stops |
 | breakOn | "days"/"hours"/"min"/"sec"/"ms"        | Prevents the transition to the next time division. 1hour 10min -> 70min |
 
-## Example
+## Methods
+
+### Static
+
+#### Timer.convert
+
+Converts milliseconds in the object
+
+###### Note: This is [STATIC](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) method.
+
+```Javascript
+const timer = Timer.convert(2000500000, 'hours');
+// timer -> {days: 23, hours: 3, min: 41, sec: 40, ms: 0 }
+````
+
+#### Timer.stringify
+
+Method will convert numbers to string, and will add zero, if the number less than 10.
+
+Useful for making clocks-like counters e.t.c
+
+###### Note: This is [STATIC](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) method.
+
+```Javascript
+const timer = Timer.convert(2000500000);
+const date = Timer.stringify(timer);
+// timer -> {days: "23", hours: "03", min: "41", sec: "40", ms: "00" }
+````
+
+#### timer.start()
+
+Starts the timer
+
+```Javascript
+    const timer = new Timer(callback);
+    timer.start()
+```
+
+#### timer.stop()
+
+Stops the timer
+
+```Javascript
+    const timer = new Timer(callback);
+    timer.stop()
+```
+
+#### timer.reset()
+
+Stops the timer
+
+```Javascript
+    const timer = new Timer(callback);
+    timer.reset()
+```
+## Usage example
 
 ```Javascript
     const callback = function (date, timer) {
-          document.body.innerHTML = 'Timer state is: '
-          + date.days
-          + ' : '
-          + date.hours  
-          + ' : '
-          + date.min
-          + ' : '
-          + date.sec
-    };
+            console.dir(date);
+            console.dir(timer);
+            const stringifyDate = Timer.stringify(date);
+            document.body.innerHTML = 'Time is: '
+                + stringifyDate.days
+                + ' : '
+                + stringifyDate.hours
+                + ' : '
+                + stringifyDate.min
+                + ' : '
+                + stringifyDate.sec;
     
-    const counter = new Timer(callback, {
-        time: 90485000,
-        // to count down just pass negative tick int
-        tick: -1000,
-    });
+            // timer.time is a working timer variable
+            // consider it as read-only,
+            // but I can't forbid you to experiment with its direct manipulation
+            if(timer.time < 10000) {
+                timer.reset();
+            }
+    
+            setTimeout(() => {
+                // to stop timer
+                timer.stop();
+    
+                // to reset timer
+                timer.reset();
+            }, 20000)
+        };
+    
+        const timer = new Timer(callback, {
+            // initial time value
+            time: 90485000,
+            // to count down just pass negative tick int
+            tick: -1000,
+        });
+    
+        // to start timer
+        timer.start();
 ```
 
 >Note: If you count down, timer will stop automatically when it reach 0. 
