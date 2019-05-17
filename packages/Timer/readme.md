@@ -84,8 +84,6 @@ Or init and pass params
 
 ## Methods
 
-### Static
-
 #### Timer.convert
 
 Converts milliseconds in the object
