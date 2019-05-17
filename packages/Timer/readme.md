@@ -4,7 +4,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Options](#options)
-- [Methods](#Methods)
+- [Methods](#methods)
 - [Example](#example)
 - [License](#license)
 
@@ -137,7 +137,7 @@ Stops the timer
     const timer = new Timer(callback);
     timer.reset()
 ```
-## Usage example
+## Example
 
 ```Javascript
     const callback = function (date, timer) {
