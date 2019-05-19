@@ -56,7 +56,7 @@ Lock scroll X or Y
 ScrollLeash.lockX();
 ScrollLeash.lockY();
 ```
-> add `[data-scroll-fixed]` attribute to any `position:fixed` element on the page
+> If you are facing jumps in `position:fixed` elements, add `[data-scroll-fixed]` attribute to this element
 
 ### Release
 
