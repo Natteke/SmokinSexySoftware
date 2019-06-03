@@ -1,7 +1,7 @@
 {
   "name": "sss-leash",
   "version": "2.1.4",
-  "description": "Disable container scroll whenever you want.",
+  "description": "Browser scrollbar helper (Disable/Enable by X, Y) and more...",
   "keywords": [
     "leash",
     "smokinsexysoftware",

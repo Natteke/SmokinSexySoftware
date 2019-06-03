@@ -12,7 +12,7 @@
 - [License](#license)
 
 ## About
-Leash allows you to sit in the browser's scroll cockpit, and disable it at will.
+Leash is a Browser scrollbar helper (Disable/Enable by X and Y).
 
 ## Installation
 
