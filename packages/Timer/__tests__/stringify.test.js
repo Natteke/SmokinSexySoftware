@@ -7,15 +7,15 @@ describe('Stringify', () => {
         const date = Timer.stringify(time);
         expect(date)
             .toEqual({
-                days: '01', hours: '01', min: '08', sec: '05', ms: '00',
+                DAY: '01', HOUR: '01', MIN: '08', SEC: '05', MS: '00',
             });
     });
     it('Case 2 000 500 000', () => {
-        const time = Timer.convert(2000500000, 'hours');
+        const time = Timer.convert(2000500000, Timer.duration.HOUR);
         const date = Timer.stringify(time);
         expect(date)
             .toEqual({
-                days: '00', hours: '555', min: '41', sec: '40', ms: '00',
+                DAY: '00', HOUR: '555', MIN: '41', SEC: '40', MS: '00',
             });
     });
 });

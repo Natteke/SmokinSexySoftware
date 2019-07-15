@@ -1,7 +1,7 @@
 import Timer from '../src/index';
 
 describe('Autostop', () => {
-    it('Stop when counter reach 0 with callback', done => {
+    it('Stop when counter reach 0 with callback', (done) => {
         const callback = jest.fn((x, y) => y);
         const stopCallback = jest.fn((x, y) => y);
         const tick = 1000;
@@ -25,7 +25,7 @@ describe('Autostop', () => {
         }, time + 30);
     });
 
-    it('Stop when counter reach 0 NO callback', done => {
+    it('Stop when counter reach 0 NO callback', (done) => {
         const callback = jest.fn((x, y) => y);
         const tick = 1000;
         const time = 2000;
@@ -44,6 +44,4 @@ describe('Autostop', () => {
             // +30ms threshold to test all [times] async calls
         }, time + 30);
     });
-
-
 });

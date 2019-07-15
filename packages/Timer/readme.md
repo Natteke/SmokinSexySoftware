@@ -80,7 +80,7 @@ Or init and pass params
 | time      | number| Initial Timer time state |
 | tick     | number        |   How much Timer should increment in each tick and call callback |
 | onStop | function        | Calls after timer stops |
-| breakOn | "days"/"hours"/"min"/"sec"/"ms"        | Prevents the transition to the next time division. 1hour 10min -> 70min |
+| breakOn | OneOf: {Timer.duration.DAY / Timer.duration.HOUR ...}        | Prevents the transition to the next time division. 1hour 10min -> 70min |
 
 ## Methods
 
@@ -91,8 +91,8 @@ Converts milliseconds in the object
 ###### Note: This is [STATIC](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) method.
 
 ```Javascript
-const timer = Timer.convert(2000500000, 'hours');
-// timer -> {days: 23, hours: 3, min: 41, sec: 40, ms: 0 }
+const timer = Timer.convert(2000500000, Timer.duration.MIN);
+// timer -> DAY: 0, HOUR: 0, MIN: 33341, SEC: 40, MS: 0,
 ````
 
 #### Timer.stringify
@@ -106,8 +106,28 @@ Useful for making clocks-like counters e.t.c
 ```Javascript
 const timer = Timer.convert(2000500000);
 const date = Timer.stringify(timer);
-// timer -> {days: "23", hours: "03", min: "41", sec: "40", ms: "00" }
+// timer -> {DAY: "23", HOUR: "03", MIN: "41", SEC: "40", MS: "00" }
 ````
+
+#### Timer.format
+
+Format template-string with passed data object
+
+`
+Note: KEY in Object should be the same as {{KEY}} in string.
+You can use any data with this function.
+`
+
+###### Note: This is [STATIC](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) method.
+
+```Javascript
+    const string = '{{DAY}}:{{HOUR}}:{{MIN}}:{{SEC}}:{{MS}}';
+    const data = { DAY: '01', HOUR: '01', MIN: '07', SEC: '54', MS: '00'};
+    Timer.format(string, data);
+    // 01:01:07:54:00
+````
+
+
 
 #### timer.start()
 
@@ -143,17 +163,16 @@ Stops the timer
             console.dir(timer);
             const stringifyDate = Timer.stringify(date);
             document.body.innerHTML = 'Time is: '
-                + stringifyDate.days
+                + stringifyDate.DAY
                 + ' : '
-                + stringifyDate.hours
+                + stringifyDate.HOUR
                 + ' : '
-                + stringifyDate.min
+                + stringifyDate.MIN
                 + ' : '
-                + stringifyDate.sec;
+                + stringifyDate.SEC;
     
             // timer.time is a working timer variable
-            // consider it as read-only,
-            // but I can't forbid you to experiment with its direct manipulation
+            // consider it as read-only
             if(timer.time < 10000) {
                 timer.reset();
             }

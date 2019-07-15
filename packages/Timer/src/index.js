@@ -3,28 +3,31 @@
 * Copyright (c) 2019-present Andrey Ponomarenko; */
 
 import {
-    breakpoints,
+    duration,
     getEmptyDate,
     stringify,
     convert,
-} from './components/helpers';
+    format,
+} from './components';
 
 class Timer {
     constructor(callback, params = {}) {
-        if (typeof callback !== 'function') throw new TypeError('Timer: 1 argument function is required');
+        if (typeof callback !== 'function') throw new Error('Timer: 1 argument function is required');
         this.onTick = callback;
         this.onStop = params.onStop || (() => {});
         this.time = params.time || 0;
         this.initialTime = params.time || 0;
         this.tick = params.tick || 1000;
-        this.breakOn = params.breakOn || 'days';
+        this.breakOn = params.breakOn || duration.DAY;
     }
 
-    static breakpoints = breakpoints;
+    static duration = duration;
 
     static stringify = stringify;
 
     static convert = convert;
+
+    static format = format;
 
     interval = null;
 

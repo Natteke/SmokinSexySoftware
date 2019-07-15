@@ -16,7 +16,7 @@ describe('Initialisation', () => {
         const counter = new Timer(callback);
         counter.start();
         expect(counter.tick).toBe(1000);
-        expect(counter.breakOn).toBe('days');
+        expect(counter.breakOn).toBe(Timer.duration.DAY);
         expect(counter.interval).toBe(setTimeout(() => {}) - 1);
         counter.stop();
         done();
@@ -25,6 +25,6 @@ describe('Initialisation', () => {
     it('throw error if no callback was provided', () => {
         expect(() => {
             const counter = new Timer();
-        }).toThrow(TypeError);
+        }).toThrow(Error);
     });
 });

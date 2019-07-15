@@ -5,12 +5,12 @@ describe('Time convertation', () => {
         const parseTime = jest.fn(x => x);
         const counter = new Timer(parseTime, {
             time: 500000,
-            breakOn: 'sec',
+            breakOn: Timer.duration.SEC,
         });
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 0, hours: 0, min: 0, sec: 500, ms: 0,
+                DAY: 0, HOUR: 0, MIN: 0, SEC: 500, MS: 0,
             });
         counter.stop();
     });
@@ -19,12 +19,12 @@ describe('Time convertation', () => {
         const parseTime = jest.fn(x => x);
         const counter = new Timer(parseTime, {
             time: 2000500000,
-            breakOn: 'min',
+            breakOn: Timer.duration.MIN,
         });
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 0, hours: 0, min: 33341, sec: 40, ms: 0,
+                DAY: 0, HOUR: 0, MIN: 33341, SEC: 40, MS: 0,
             });
         counter.stop();
     });
@@ -33,12 +33,12 @@ describe('Time convertation', () => {
         const parseTime = jest.fn(x => x);
         const counter = new Timer(parseTime, {
             time: 2000500000,
-            breakOn: 'hours',
+            breakOn: Timer.duration.HOUR,
         });
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 0, hours: 555, min: 41, sec: 40, ms: 0,
+                DAY: 0, HOUR: 555, MIN: 41, SEC: 40, MS: 0,
             });
         counter.stop();
     });
@@ -51,7 +51,7 @@ describe('Time convertation', () => {
         expect(parseTime.mock.results[0].value)
             .toEqual({
                 // because.. c'mon.. negative time?
-                days: 0, hours: 0, min: 0, sec: 0, ms: 0,
+                DAY: 0, HOUR: 0, MIN: 0, SEC: 0, MS: 0,
             });
         counter.stop();
     });
@@ -64,7 +64,7 @@ describe('Time convertation', () => {
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 0, hours: 0, min: 0, sec: 50, ms: 0,
+                DAY: 0, HOUR: 0, MIN: 0, SEC: 50, MS: 0,
             });
         counter.stop();
     });
@@ -77,7 +77,7 @@ describe('Time convertation', () => {
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 0, hours: 0, min: 8, sec: 20, ms: 0,
+                DAY: 0, HOUR: 0, MIN: 8, SEC: 20, MS: 0,
             });
         counter.stop();
     });
@@ -90,7 +90,7 @@ describe('Time convertation', () => {
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 60, hours: 0, min: 0, sec: 25, ms: 0,
+                DAY: 60, HOUR: 0, MIN: 0, SEC: 25, MS: 0,
             });
         counter.stop();
     });
@@ -104,7 +104,7 @@ describe('Time convertation', () => {
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 23, hours: 3, min: 41, sec: 40, ms: 0,
+                DAY: 23, HOUR: 3, MIN: 41, SEC: 40, MS: 0,
             });
         counter.stop();
     });
@@ -117,7 +117,7 @@ describe('Time convertation', () => {
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 34, hours: 17, min: 30, sec: 0, ms: 0,
+                DAY: 34, HOUR: 17, MIN: 30, SEC: 0, MS: 0,
             });
         counter.stop();
     });
@@ -130,7 +130,7 @@ describe('Time convertation', () => {
         counter.start();
         expect(parseTime.mock.results[0].value)
             .toEqual({
-                days: 34, hours: 17, min: 30, sec: 0, ms: 5,
+                DAY: 34, HOUR: 17, MIN: 30, SEC: 0, MS: 5,
             });
         counter.stop();
     });
