@@ -12,6 +12,8 @@ Elemental.regexp = string => (
 
 Elemental.hasClass = (element, string) => Elemental.regexp(string).test(element.className);
 
+Elemental.get = string => [].slice.call(document.querySelectorAll(string));
+
 Elemental.addClass = (element, string) => {
     let { className } = element;
     if (!Elemental.hasClass(element, string)) {
@@ -43,10 +45,9 @@ Elemental.toggleClass = (element, string) => {
 // patch Element.prototype with Elemental methods
 Elemental.eject = () => {
     // props we want to eject
-    const methods = Object.getOwnPropertyNames(Elemental)
-        .filter(e => Elemental.propsToEject.indexOf(e) >= 0);
+    const methods = Object.getOwnPropertyNames(Elemental).filter(e => Elemental.propsToEject.indexOf(e) >= 0);
     methods.forEach((methodName) => {
-        Element.prototype[methodName] = (function (className) {
+        Element.prototype[methodName] = (function(className) {
             return Elemental[methodName](this, className);
         });
     });
